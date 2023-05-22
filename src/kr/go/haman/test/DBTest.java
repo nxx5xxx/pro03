@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import kr.go.haman.util.MySQL8;
+import kr.go.haman.model.MySQL8;
 
 import org.junit.After;
 import org.junit.Before;

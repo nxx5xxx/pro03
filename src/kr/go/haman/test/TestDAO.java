@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import kr.go.haman.util.MySQL8;
+import kr.go.haman.model.MySQL8;
 
 public class TestDAO {
 	private Connection conn = null;

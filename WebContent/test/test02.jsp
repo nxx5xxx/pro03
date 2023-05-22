@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
- <link href="${path }/bulma/bulma.css" rel="stylesheet">
+ <link href="${path }/source/bulma.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <style>
 </style>

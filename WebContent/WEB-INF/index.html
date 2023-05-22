@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        ul {list-style: none;}
+
+
+        .headerWrap{width: 1200px; background-color: white; margin: 0 auto; text-align: center;}
+
+        .member {float:right}
+        .member>ul>li {float: left; margin-left: 30px;}
+        .logo{clear: both;}
+        .menu {width: 1200px; float: left; background-image: url("../img/menu_bg.png")}
+        /* .menu {width: 1200px; float: left; background-color: rgb(0,154,218); position: relative;} */
+        /* .menu_bottom_bar {background-color: rgb(81,154,56); height: 40px; width: 70%; position: absolute; z-index: 5; bottom: 0; left: 15%;} */
+        /* .menu>ul {position: relative; z-index: 9999;} */
+        .menu>ul>li {float: left; margin-left: 108px; font-size: 36px; color: white; margin-top: 50px; padding: 0 10px 50px 10px;}
+        .sub1_menu {background-color: rgb(88,173,64); }
+        .sub2_menu {background-color: rgb(252,177,49);}
+        .sub3_menu {background-color: rgb(241,92,48);}
+        .sub4_menu {background-color: white; ;}
+        .mainWrap {width: 1000px;}
+
+        /* .item1 {display: none; background-color:  rgb(88,173,64);} */
+        /* .sub1_menu>a:hover ~ .sub_menu>.item1{display: block;} */
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="headerWrap">
+            <div class="member">
+               <ul>
+                <!-- c:if로 id가 null인지 admin인지 회원인지에 따라 나눔 -->
+                <li>
+                    로그인
+                </li>
+                <li>
+                    |
+                </li>
+                <li>
+                    회원가입
+                </li>
+               </ul> 
+            </div>
+            <div class="logo">
+            <img src="../img/logo.png">
+            </div>
+            <div class="menu">
+                <div class="menu_bottom_bar">
+
+                </div>
+                <ul>
+                    <li class="sub1_menu">
+                        <a href="">공지사항</a>
+
+                        <div class="sub_menu">
+                            <ul class="item1">
+                                <li>
+                                    함안소식
+                                </li>
+                                <li>
+                                    고객민원
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="sub2_menu">
+                        축제행사
+                    </li>
+                    <li class="sub3_menu">
+                        함안여행
+                    </li>
+                    <li class="sub4_menu" style="color:rgb(0,154,218) ">
+                        관광행사
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+    <main>
+    <div class="mainWrap">
+
+    </div>
+
+    </main>
+    <footer>
+
+
+    </footer>
+
+</body>
+</html>
