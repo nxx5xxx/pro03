@@ -1,5 +1,5 @@
 -- create database haman;
--- USE haman;
+ USE haman;
 -- set autocommit=true;
 -- show variables like 'autocommit';
 
@@ -13,12 +13,12 @@
 COMMIT;
 
 -- 함안 테이블
--- DROP TABLE member;
--- DROP TABLE notice;
--- DROP TABLE photog;
--- DROP TABLE food;
--- DROP TABLE complain;
--- DROP TABLE accom;
+ DROP TABLE member;
+ DROP TABLE notice;
+DROP TABLE photog;
+DROP TABLE food;
+DROP TABLE complain;
+DROP TABLE accom;
 
 -- 멤버 테이블
 create table USER1(ID	VARCHAR(20) PRIMARY KEY,  	
@@ -93,12 +93,19 @@ create table ACCOM(ANO VARCHAR(5) PRIMARY KEY,
 
 -- 회원 더미 데이터
 insert into 	USER1	 values('admin','관리자','1234','경기도 고양시','010-0000-0000','admin@naver.com',default);
+update user1 set pw='LySS6ru/2ewkkXvE4EQjkqUhNBaUxmI0vs3nMbcDlxI/ZWQQAG1upbOe4eerLQdFYFrCMg==' where id='admin';
 insert into 	USER1	 values('kim','김길동','1111','경기도 고양시','010-1111-1111','test1@naver.com',default);
+update user1 set pw='5y3DrnUnN97CuOYVhaLZF1zVGQo4HB3VA++YiuW3kfetg5mppm8OJt9wgYSUTHZiH/zLMw==' where id='kim';
 insert into 	USER1	 values('park','박길은','2222','경기도 고양시','010-2222-2222','test2@naver.com',default);
+update user1 set pw='HPkV4oNAfzoXBEzTrhdUo1Vi2u1+484v2RYianbDyDqAfFJKmOinMr1KB3wY2JopYO3ehg==' where id='park';
 insert into 	USER1	 values('lee','이길금','3333','경기도 고양시','010-3333-3333','test3@naver.com',default);
+update user1 set pw='Hr0QEQoV0lPNdpv0tYDytDsmUkksMxzMke8aX59tJLH55MpQmyh6gL93lvmsLzQg+v041g==' where id='lee';
 insert into 	USER1	 values('choi','최백금','4444','경기도 고양시','010-1111-1112','test4@naver.com',default);
+update user1 set pw='xBhtj7wP33kLpksfV5t9VV0w8tPHtkQTg+lE4leQ99K6UnSyGkPCc2gV97kmcFo2AVODhQ==' where id='choi';
 insert into 	USER1	 values('jho','조백은','5555','경기도 고양시','010-2222-2223','test5@naver.com',default);
+update user1 set pw='QE8/7ZT6N7WeqAEt8a+aqvmAOHbtOZ4j8yrD0tP0hZ/l/mPOdlThnIOwJ96WkE2UUeF04w==' where id='jho';
 insert into 	USER1	 values('whitekim','김백동','6666','경기도 고양시','010-3333-3334','test6@naver.com',default);
+update user1 set pw='Yz6oIY1WqSIzrvF1c5ZwXTZoPFEcfoAmTl3J5j3fOrgfBLxP2sorg3CF7y+bXcjrwjn4zQ==' where id='whitekim';
 
 
 -- 기존 더미데이터 삭제하고 한글이름으로 전환
@@ -187,3 +194,4 @@ SELECT * FROM complain where id='kim' order by cno DESC LIMIT 0,10;
 DESC photog;
 SELECT * FROM photog ORDER BY pno DESC;
 SELECT * FROM photog ORDER BY pno DESC LIMIT 1;
+

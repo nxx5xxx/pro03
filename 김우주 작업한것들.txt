@@ -1,0 +1,16 @@
+원래 있던것에서 작업한것에는 각주와 날짜로 표기했어요
+예) 오늘날짜 0522
+<!-- 0522 --!>
+
+ctrl + F 로 0522검색해보시면 오늘 작업한거 뭔지 알 수 있을거에요
+
+
+새로추가한것
+kr.go.haman.controller에 Main.java
+
+index.jsp > WEB-INF로 옮김
+Loginproctrl sendRedirect에 있는거 requestDisptcher로 바꿈
+UserLogoutCtrl 마찬가지
+
+WEB-INF폴더에
+web.xml 수정해서 메인 /로 바꿔줌
