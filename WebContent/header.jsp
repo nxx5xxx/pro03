@@ -28,12 +28,12 @@
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">공지사항</a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="NoiceList.do">함안소식</a>
+          <a class="navbar-item" href="${path }/GoNoticeList.do">함안소식</a>
           <!-- 0522 -->
           <c:if test="${sid == null }">
-          <a class="navbar-item" href="UserLogin.do">고객민원</a></c:if>
+          <a class="navbar-item" href="${path }/UserLogin.do">고객민원</a></c:if>
           <c:if test="${sid != null }">
-          <a class="navbar-item" href="GoComplain.do">고객민원</a>
+          <a class="navbar-item" href="${path }/GoComplainList.do">고객민원</a>
           </c:if>
           <!-- 0522 -->
         </div>

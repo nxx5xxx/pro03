@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/GoComplain.do")
-public class GoComplain extends HttpServlet {
+@WebServlet("/GoComplainInsert.do")
+public class GoComplainInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/sub1/complain.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/sub1/complain/complainInsert.jsp");
 		view.forward(request, response);
 	}
 

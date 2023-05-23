@@ -102,9 +102,9 @@ public class NoticeDAO {
 			pstmt.setString(3, notice.getContent());
 			pstmt.setString(4, notice.getId());
 			pstmt.setString(5, notice.getName());
-			pstmt.setString(6, "data/notice/"+notice.getFile1());
-			pstmt.setString(7, "data/notice/"+notice.getFile2());
-			pstmt.setString(8, "data/notice/"+notice.getFile3());
+			pstmt.setString(6, notice.getFile1());
+			pstmt.setString(7, notice.getFile2());
+			pstmt.setString(8, notice.getFile3());
 			sw = pstmt.executeUpdate();
 			if(sw>0){
 				System.out.println("공지사항 등록이 잘 되었습니다");

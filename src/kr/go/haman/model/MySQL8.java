@@ -27,9 +27,15 @@ public class MySQL8 {
 		
 		
 	//민원
-		final static String COMPLAIN_SELECT_ALL = "SELECT * FROM complain order by cno desc";
+		final static String COMPLAIN_SELECT_ALL = "SELECT * FROM complain where comsw=1 order by cno desc";
+		final static String COMPLAIN_SELECT_ALL2 = "SELECT * FROM complain where comsw=1 or comsw=3 order by cno desc";
+		final static String COMPLAIN_SELECT_DESC_LIMIT = "SELECT * FROM complain ORDER BY cno DESC LIMIT 1";
 		final static String COMPLAIN_SELECT_BY_ID = "SELECT * FROM complain where id=? order by cno desc LIMIT 0,10";
 		final static String COMPLAIN_SELECT_FROM_REFNO = "SELECT * FROM complain where refno=?";
+		final static String COMPLAIN_SELECT_FROM_CNO = "SELECT * FROM complain where cno=?";
+		final static String COMPLAIN_UPDATE_COMSW = "update complain set comsw=3 where cno=?";
+		
+		final static String COMPLAIN_SELECT_REPLY = "SELECT * FROM complain where refno=? and comsw=2";
 		final static String COMPLAIN_INSERT = "insert into complain values(?, ?, ?,?, ?, ?,?,?,?,default,DEFAULT,?)";
 		final static String COMPLAIN_INSERT_REPLY = "insert into complain values(?, ?, ?,?, ?, ?,?,?,?,default,2,?)";
 		final static String COMPLAIN_DELETE = "delete from complain where refno=?";

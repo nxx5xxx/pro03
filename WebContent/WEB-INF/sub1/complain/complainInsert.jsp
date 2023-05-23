@@ -34,6 +34,7 @@ tr {margin-left:20px}
 공무원에 대한 폭언, 욕설 등은 관련 법령(형법, 경범죄처벌법)에 따라 법적조치를 받을 수 있습니다.</pre>
 	<div class="divide">피신고자 정보(필수)</div>
 	<form action="${path1 }/InsertComplain.do" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="sid" value="${sid }">
 		<table class="table is-fullwidth">
 		<tr>
 		<th>이름(개인,기업,단체)</th> <td><input type="text" name="name" placeholder="내용을 입력해주세요" required></td>
@@ -66,7 +67,7 @@ tr {margin-left:20px}
 		<span class="colred">*</span> 민원 내용
 		</th>
 		<td>
-		<textarea rows="20" cols="100" placeholder="내용을 입력해주세요" required></textarea>
+		<textarea rows="20" cols="100" name="content" placeholder="내용을 입력해주세요" required></textarea>
 		</td>
 		</tr>
 		<tr>

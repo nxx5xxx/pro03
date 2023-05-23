@@ -1,3 +1,4 @@
+
 -- create database haman;
  USE haman;
 -- set autocommit=true;
@@ -143,7 +144,9 @@ insert into complain values('30002', '민원제목2', '민원에대한 본문입
 insert into complain values('30003', '민원제목3', '민원에대한 본문입니다3','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30003');
 insert into complain values('30004', '민원제목4', '민원에대한 본문입니다4','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30004');
 insert into complain values('30005', '민원제목5', '민원에대한 본문입니다5','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30005');
-
+-- 민원 답변 더미 데이터
+insert into complain values('30006', '답변제목1', '민원에대한 답변입니다1','admin', '관리자', '함안군청','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,2,'30001');
+SELECT * FROM complain where refno='30001' and comsw=2;
 desc photog;
 
 -- 포토갤러리 더미데이터
@@ -195,3 +198,9 @@ DESC photog;
 SELECT * FROM photog ORDER BY pno DESC;
 SELECT * FROM photog ORDER BY pno DESC LIMIT 1;
 
+commit;
+SELECT * FROM USER1;
+
+SHOW TABLES;
+
+SELECT * FROM complain where id='kim' order by cno desc LIMIT 0,10;
