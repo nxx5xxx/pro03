@@ -48,12 +48,12 @@ public class PhotogDAO {
 		return photoList;
 	}
 	
-	public Photog getSelectOne(String nno){
+	public Photog getSelectOne(String pno){
 		Photog photo = new Photog();
 		try {
 			conn = MySQL8.getConnection();
 			pstmt = conn.prepareStatement(MySQL8.PHOTO_SELECT_ONE);
-			pstmt.setString(1, nno);
+			pstmt.setString(1, pno);
 			rs = pstmt.executeQuery();
 			if(rs.next()){
 				photo.setPno(rs.getString("pno"));
@@ -88,20 +88,20 @@ public class PhotogDAO {
 			pstmt = conn.prepareStatement(MySQL8.PHOTO_SELECT_DESC_LIMIT);
 			rs = pstmt.executeQuery();
 			if(rs.next()){
-				intPno = Integer.parseInt(rs.getString("nno"))+1;
+				intPno = Integer.parseInt(rs.getString("pno"))+1;
 				photoPno = intPno + "";
 			}else{
+
 				photoPno = "40001";
 			}
-			
 			pstmt = conn.prepareStatement(MySQL8.PHOTO_INSERT);
 			pstmt.setString(1, photoPno);
 			pstmt.setString(2, photo.getTitle());
 			pstmt.setString(3, photo.getContent());
 			pstmt.setString(4, photo.getId());
 			pstmt.setString(5, photo.getName());
-			pstmt.setString(6, "data/photog/"+photo.getFile1());
-			pstmt.setString(7, "data/photog/"+photo.getFile2());
+			pstmt.setString(6, photo.getFile1());
+			pstmt.setString(7, photo.getFile2());
 			sw = pstmt.executeUpdate();
 			if(sw>0){
 				System.out.println("포토갤러리 글 등록이 잘 되었습니다");
@@ -127,6 +127,47 @@ public class PhotogDAO {
 			if(sw>0){
 				System.out.println("포토갤러리 글 삭제가 잘 실행 되었습니다");
 			}
+			
+		} catch (ClassNotFoundException e) {
+			System.out.println("오라클 JDBC 파일이 잘못되었습니다");
+		}catch(SQLException e){
+			System.out.println("SQL 구문이 잘못되었습니다");
+		}catch(Exception e){
+			System.out.println("식별할 수 없는 오류가 발생하였습니다");
+		}
+		MySQL8.close(pstmt, conn);
+	}
+	
+	public void updatePhotog(Photog photo, int pnosw){
+		int sw=0;
+		
+		try {
+			conn = MySQL8.getConnection();
+			
+			if(pnosw==1){
+				pstmt = conn.prepareStatement(MySQL8.PHOTO_UPDATE_FILE1);
+				pstmt.setString(3, photo.getFile1());
+				pstmt.setString(4, photo.getPno());
+			}else if(pnosw==10){
+				pstmt = conn.prepareStatement(MySQL8.PHOTO_UPDATE_FILE2);
+				pstmt.setString(3, photo.getFile2());
+				pstmt.setString(4, photo.getPno());
+			}else if(pnosw==11){
+				pstmt = conn.prepareStatement(MySQL8.PHOTO_UPDATE_FILE1_FILE2);
+				pstmt.setString(3, photo.getFile1());
+				pstmt.setString(4, photo.getFile2());
+				pstmt.setString(5, photo.getPno());
+			}else{
+				pstmt = conn.prepareStatement(MySQL8.PHOTO_UPDATE_NOFILE);
+				pstmt.setString(3, photo.getPno());
+			}
+			pstmt.setString(1, photo.getTitle());
+			pstmt.setString(2, photo.getContent());
+			sw=pstmt.executeUpdate();
+			if(sw>0){
+				System.out.println("포토갤러리 수정이 잘 되었습니다");
+			}
+			
 			
 		} catch (ClassNotFoundException e) {
 			System.out.println("오라클 JDBC 파일이 잘못되었습니다");

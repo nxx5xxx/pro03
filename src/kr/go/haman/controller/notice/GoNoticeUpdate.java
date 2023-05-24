@@ -27,18 +27,24 @@ public class GoNoticeUpdate extends HttpServlet {
 		notice = notdao.getSelectOne(nno);
 		
 		if(notice.getFile1()!=null){
-			String fileName1 = notice.getFile1().substring(12);
-			request.setAttribute("fileName1", fileName1);
+			if(notice.getFile1().length()>11){
+				String fileName1 = notice.getFile1().substring(12);
+				request.setAttribute("fileName1", fileName1);
+			}
 		}
 		
 		if(notice.getFile1()!=null){
-		String fileName2 = notice.getFile2().substring(12);
-		request.setAttribute("fileName2", fileName2);
+			if(notice.getFile2().length()>11){
+			String fileName2 = notice.getFile2().substring(12);
+			request.setAttribute("fileName2", fileName2);
+			}
 		}
 		
 		if(notice.getFile3()!=null){
-			String fileName3 = notice.getFile3().substring(12);
-			request.setAttribute("fileName3", fileName3);
+			if(notice.getFile3().length()>11){
+				String fileName3 = notice.getFile3().substring(12);
+				request.setAttribute("fileName3", fileName3);
+			}
 		}
 
 		request.setAttribute("notice", notice);

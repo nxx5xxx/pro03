@@ -23,13 +23,15 @@ public class GoNoticeDetail extends HttpServlet {
 
 		Notice notice = new Notice();
 		NoticeDAO notdao = new NoticeDAO();
-		
+		String fileName = null;
 		notice = notdao.getSelectOne(nno);
 		if(notice.getFile2()!=null){
-		String fileName = notice.getFile2().substring(12);
-		request.setAttribute("fileName", fileName);
+			if(notice.getFile2().length()>11){
+				fileName = notice.getFile2().substring(12);
+				
+			}
 		}
-
+		request.setAttribute("fileName", fileName);
 		request.setAttribute("notice", notice);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/sub1/notice/noticeDetail.jsp");

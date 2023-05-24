@@ -53,6 +53,6 @@ tr {margin-left:20px}
 	<input type="button" class="button is-info" value="민원 신청" style="float:right" onclick="location.href='${path1 }/GoComplainInsert.do'">
 	</div>
 </div>
-
+<%@ include file="/footer.jsp" %>
 </body>
 </html>

@@ -25,26 +25,27 @@ tr {margin-left:20px}
 <div class="blank"></div>
 
 <div class="main_wrap">
-	<h3 class="title is-3 min" style="color:rgb(0,154,218)">●공지사항 글 쓰기</h3>
-	<form action="${path1 }/NoticeInsert.do" method="post" enctype="multipart/form-data">
+	<h3 class="title is-3 min" style="color:rgb(0,154,218)">●공지사항 글 수정</h3>
+	<form action="${path1 }/NoticeUpdate.do" method="post" enctype="multipart/form-data">
+	<input type=hidden name="nno" value="${notice.nno }">
 		<table class="table is-hoverable" style="width:100%">
 		<tr>
 		<th>담당자</th>
-		<td><input class="input is-small" type="text" name="name" placeholder="담당자 이름을 입력해 주세요"></td>
+		<td><input class="input is-small" type="text" name="name" value="${notice.name }"></td>
 		</tr>
 		<tr>
 		<th>
 			<h3 class="title is-3 min" style="line-height:48.8px" >제목</h3>
 		</th>
 		<td>
-			<input class="input is-medium" type="text" name="title" placeholder="제목을 입력해 주세요">	
+			<input class="input is-medium" type="text" name="title" value="${notice.title }">	
 		</td>
 		</tr>
 		
 		<tr>
 		<th colspan="2">
 			<h5 class="title is-5 min" >본문내용</h5>
-			<textarea style="width:100%;height:400px" name="content" placeholder="내용을 입력해 주세요"></textarea>
+			<textarea style="width:100%;height:400px" name="content" >${notice.content }</textarea>
 		</th>
 		</tr>
 		<tr>
@@ -54,7 +55,7 @@ tr {margin-left:20px}
 		</c:if>
 		
 		<c:if test="${!empty fileName1 }">
-		<input type="file" name="file1" >
+		<input type="file" name="file1" > 기존파일 : ${notice.file1 }
 		<input type="hidden" name="file1" value="${notice.file1 }">
 		</c:if>
 		</td>
@@ -67,7 +68,7 @@ tr {margin-left:20px}
 		</c:if>
 		
 		<c:if test="${!empty fileName2 }">
-		<input type="file" name="file2" >
+		<input type="file" name="file2" > 기존파일 : ${notice.file2 }
 		<input type="hidden" name="file2" value="${notice.file2 }">
 		</c:if>
 		</td>
@@ -80,7 +81,7 @@ tr {margin-left:20px}
 		</c:if>
 		
 		<c:if test="${!empty fileName3 }">
-		<input type="file" name="file3" >
+		<input type="file" name="file3" > 기존파일 : ${notice.file3 }
 		<input type="hidden" name="file3" value="${notice.file3 }">
 		</c:if>
 		</td>
@@ -89,7 +90,7 @@ tr {margin-left:20px}
 		<tr style="text-align:center">
 		<td colspan="2">
 		<input type="button" class="button is-success" value="목록으로" style="margin-right:30px" onclick="location.href='${path1}/GoNoticeList.do'">
-		<input type="submit" class="button is-success" value="공지사항등록" >
+		<input type="submit" class="button is-success" value="수정확인" >
 		</td>
 		</tr>
 
@@ -103,6 +104,6 @@ tr {margin-left:20px}
 	</div>
 	<div class="blank" style="margin-bottom:100px"></div>
 </div>
-
+<%@ include file="/footer.jsp" %>
 </body>
 </html>

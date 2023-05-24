@@ -1,11 +1,9 @@
 package kr.go.haman.model;
 
-import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.security.spec.InvalidParameterSpecException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -159,16 +157,14 @@ public class User1DAO {
 	}
 	
 	//회원가입
-	public int insertUser(User1 user) throws InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidParameterSpecException, UnsupportedEncodingException, BadPaddingException, IllegalBlockSizeException{
+	public int insertUser(User1 user) {
 		int cnt = 0;
-		String passwd = "";
 		try {
 			conn = MySQL.getConnection();
 			pstmt = conn.prepareStatement(MySQL.USER1_INSERT);
 			pstmt.setString(1, user.getId());
-			passwd = AES256.encryptAES256(user.getPw(), key);
-			pstmt.setString(2, passwd);
-			pstmt.setString(3, user.getName());
+			pstmt.setString(2, user.getName());
+			pstmt.setString(3, user.getPw());
 			pstmt.setString(4, user.getAddr());
 			pstmt.setString(5, user.getTel());
 			pstmt.setString(6, user.getEmail());
@@ -192,4 +188,30 @@ public class User1DAO {
 		} finally { MySQL.close(pstmt, conn); }
 		return cnt;
 	}
+	
+	//나 불러오기 _ 암호제외 
+	public User1 getUserFromId(User1 user){
+		try {
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.USER1_SELECT_FROM_ID);
+			pstmt.setString(1, user.getId());
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				user.setName(rs.getString("name"));
+				user.setAddr(rs.getString("addr"));
+				user.setTel(rs.getString("tel"));
+				user.setEmail(rs.getString("email"));
+				user.setRegdate(rs.getString("regdate"));
+			}
+			
+		} catch(ClassNotFoundException e) {
+			System.out.println("오라클JDBC 파일이 잘못되었습니다");
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 잘못되었습니다");
+		} catch(Exception e){
+			System.out.println("식별할수 없는 오류가 발생했습니다.");
+		}
+		return user;
+	}
+	
 }

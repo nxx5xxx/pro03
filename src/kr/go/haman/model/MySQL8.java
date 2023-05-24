@@ -10,20 +10,25 @@ public class MySQL8 {
 	static String url = "jdbc:mysql://localhost:3306/haman?serverTimezone=Asia/Seoul";
 	static String user = "root";
 	static String pass = "1234";
+	
+	//유저한개 불러오기
+		final static String USER1_SELECT_FROM_ID = "select * from user1 where id=?";
+	
 	//공지사항
 		final static String NOTICE_SELECT_ALL = "SELECT * FROM notice ORDER BY nno desc";
 		final static String NOTICE_SELECT_ONE = "select * from notice where nno=?";
 		final static String NOTICE_SELECT_DESC_LIMIT = "SELECT * FROM notice ORDER BY nno DESC LIMIT 1";
 		final static String NOTICE_INSERT = "insert into notice values(?,?,?,?,?,?,?,?,default,default)";
-		final static String NOTICE_UPDATE_NOFILE = "update notice set title=?,content=? where nno=?";
-		final static String NOTICE_UPDATE_FILE1 = "update notice set title=?,content=?,file1=? where nno=?";
-		final static String NOTICE_UPDATE_FILE2 = "update notice set title=?,content=?,file2=? where nno=?";
-		final static String NOTICE_UPDATE_FILE3 = "update notice set title=?,content=?,file3=? where nno=?";
-		final static String NOTICE_UPDATE_FILE1_FILE2 = "update notice set title=?,content=?,file1=?,file2=? where nno=?";
-		final static String NOTICE_UPDATE_FILE1_FILE3 = "update notice set title=?,content=?,file1=?,file3=? where nno=?";
-		final static String NOTICE_UPDATE_FILE2_FILE3 = "update notice set title=?,content=?,file2=?,file3=? where nno=?";
-		final static String NOTICE_UPDATE_FILE1_FILE2_FILE3 = "update notice set title=?,content=?,file1=?,file2=?,file3=? where nno=?";
+		final static String NOTICE_UPDATE_NOFILE = "update notice set name=?, title=?,content=? where nno=?";
+		final static String NOTICE_UPDATE_FILE1 = "update notice set name=?, title=?,content=?,file1=? where nno=?";
+		final static String NOTICE_UPDATE_FILE2 = "update notice set name=?, title=?,content=?,file2=? where nno=?";
+		final static String NOTICE_UPDATE_FILE3 = "update notice set name=?, title=?,content=?,file3=? where nno=?";
+		final static String NOTICE_UPDATE_FILE1_FILE2 = "update notice set name=?, title=?,content=?,file1=?,file2=? where nno=?";
+		final static String NOTICE_UPDATE_FILE1_FILE3 = "update notice set name=?, title=?,content=?,file1=?,file3=? where nno=?";
+		final static String NOTICE_UPDATE_FILE2_FILE3 = "update notice set name=?, title=?,content=?,file2=?,file3=? where nno=?";
+		final static String NOTICE_UPDATE_FILE1_FILE2_FILE3 = "update notice set name=?, title=?,content=?,file1=?,file2=?,file3=? where nno=?";
 		final static String NOTICE_DELETE_FROM_NNO = "delete from notice where nno=?";
+		final static String NOTICE_VIEW_PLUS = "update notice set views=views+1 where nno=?";
 		
 		
 	//민원
@@ -46,8 +51,12 @@ public class MySQL8 {
 		final static String PHOTO_SELECT_ALL = "SELECT * FROM photog ORDER BY pno desc";
 		final static String PHOTO_SELECT_ONE = "select * from photog where pno=?";
 		final static String PHOTO_SELECT_DESC_LIMIT = "SELECT * FROM photog ORDER BY pno DESC LIMIT 1";
-		final static String PHOTO_INSERT = "insert into notice values(?,?,?,?,?,?,?,default,default)";
+		final static String PHOTO_INSERT = "insert into photog values(?,?,?,?,?,?,?,default,default)";
 		final static String PHOTO_DELETE_FROM_PNO = "delete from photog where pno=?";
+		final static String PHOTO_UPDATE_NOFILE = "update photog set title=?,content=? where pno=?";
+		final static String PHOTO_UPDATE_FILE1 = "update photog set title=?,content=?,file1=? where pno=?";
+		final static String PHOTO_UPDATE_FILE2 = "update photog set title=?,content=?,file2=? where pno=?";
+		final static String PHOTO_UPDATE_FILE1_FILE2 = "update photog set title=?,content=?,file1=?,file2=? where pno=?";
 		
 	
 	public static Connection getConnection() throws ClassNotFoundException, SQLException{

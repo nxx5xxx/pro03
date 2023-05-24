@@ -1,6 +1,7 @@
-package kr.go.haman.controller.user1;
+package kr.go.haman.controller.photog;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,15 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/UserLogin.do")
-public class UserLoginCtrl extends HttpServlet {
+import kr.go.haman.dto.Photog;
+import kr.go.haman.model.PhotogDAO;
+
+
+@WebServlet("/PhotoList.do")
+public class PhotoList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String msg = "아이디와 비밀번호 입력 후 로그인하시기 바랍니다.";
-		request.setAttribute("msg", msg);
+		ArrayList<Photog> ptList = new ArrayList<>();
+		PhotogDAO ptd = new PhotogDAO();
+		ptList = ptd.getSelectAll();
+		request.setAttribute("ptl", ptList);
 		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/user1/login.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/sub4/photog/photoList.jsp");
 		view.forward(request, response);
 	}
 

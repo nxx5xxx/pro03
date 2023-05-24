@@ -52,8 +52,10 @@ tr {margin-left:20px}
 		<tr>
 		<td colspan="3" style="text-align:center">
 			<input type="button" class="button is-success" value="목록으로" style="margin-right:20px" onclick="location.href='${path1}/GoNoticeList.do'">
-			<input type="button" class="button is-success" value="글 수정" style="margin-right:20px" onclick="location.href='${path1}/NoticeUpdate.do?nno=${notice.nno }'">
-			<input type="button" class="button is-success" value="글 삭제">
+			<c:if test="${sid=='admin' }">
+			<input type="button" class="button is-success" value="글 수정" style="margin-right:20px" onclick="location.href='${path1}/GoNoticeUpdate.do?nno=${notice.nno }'">
+			<input type="button" class="button is-success" value="글 삭제" onclick="location.href='${path1}/NoticeDelete.do?nno=${notice.nno }'">
+			</c:if>
 		</td>
 		</tr>
 		</table>
@@ -66,5 +68,6 @@ tr {margin-left:20px}
 	<div class="blank" style="margin-bottom:100px"></div>
 </div>
 
+<%@ include file="/footer.jsp" %>
 </body>
 </html>

@@ -14,10 +14,10 @@ public class UserAgreeCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String msg = "회원 가입 페이지를 로딩합니다.";
+		String msg = "회원가입 이용약관 페이지를 로딩합니다.";
 		request.setAttribute("msg", msg);
 
-		RequestDispatcher view = request.getRequestDispatcher("agree.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/user1/agree.jsp");
 		view.forward(request, response);
 	}
 

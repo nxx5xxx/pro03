@@ -32,9 +32,9 @@ public class NoticeInsertCtrl extends HttpServlet {
 		String savePath = "/data/notice";
 		ServletContext context = getServletContext();
 		String uploadFilePath = context.getRealPath(savePath);
-		String file1 ="";
-		String file2 ="";
-		String file3 ="";
+		String file1 =null;
+		String file2 =null;
+		String file3 =null;
 		
 		
 		try{

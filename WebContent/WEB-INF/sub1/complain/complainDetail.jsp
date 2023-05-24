@@ -108,5 +108,6 @@ tr {margin-left:20px}
 		
 	<div class="blank" style="margin-bottom:100px"></div>
 </div>
+<%@ include file="/footer.jsp" %>
 </body>
 </html>
