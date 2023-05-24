@@ -6,7 +6,7 @@ a { color: #333; }
 #level2 a { margin-top: -70px; }
 #level3 span { display:block; margin-top: -70px; margin-left: 570px; font-size: 90%;}
 </style>
-<footer class="footer" style="height: 250px; background-color: #fff;">
+<footer class="footer" style="height: 250px; background-color: #fff;clear:both;">
   <nav class="level" id="level1" style="background-color: rgb(0,154,218); height: 50px;">
   <p class="level-item has-text-centered">
     <a class="link is-info">실과소 바로가기</a>

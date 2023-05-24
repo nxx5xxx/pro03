@@ -30,6 +30,7 @@
     <url-pattern>*.PNG</url-pattern>
     <url-pattern>*.ico</url-pattern>
     <url-pattern>*.swf</url-pattern>
+    <url-pattern>*.jfif</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>jsp</servlet-name>

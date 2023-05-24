@@ -74,7 +74,7 @@ public class FoodDAO {
 		return cnt;
 	}
 	
-	//글 수정(수정할 정보 뿌리기)
+	//글 수정(수정할 정보 가져오기)
 	public Food updateFood(String fno){
 		Food food = new Food();
 		try {
@@ -97,7 +97,7 @@ public class FoodDAO {
 		return food;
 	}
 	
-	//글 수정(1.파일 변경 2.파일 미변경)
+	//글 수정 처리(1.파일 변경 2.파일 미변경)
 	public int updateFoodPro(Food food){
 		int cnt = 0;
 		try {
