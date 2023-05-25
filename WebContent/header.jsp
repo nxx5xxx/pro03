@@ -50,20 +50,20 @@
         <a class="navbar-link">함안여행</a>
         <div class="navbar-dropdown">
           <span class="navbar-item"><strong>문화재</strong></span>
-          <a class="navbar-item" href="">문화재현황</a>
+          <a class="navbar-item" href="${path }/Cultural.do">문화재현황</a>
           <hr class="navbar-divider">
           <span class="navbar-item"><strong>생태관광</strong></span>
-          <a class="navbar-item" href="">함안악양둑방</a>
-          <a class="navbar-item" href="">입곡문화공원</a>
-          <a class="navbar-item" href="">입곡군립공원</a>
-          <a class="navbar-item" href="">연꽃테마파크</a>
-          <a class="navbar-item" href="">악양생태공원</a>
+          <a class="navbar-item" href="${path }/Eco1.do">함안악양둑방</a>
+          <a class="navbar-item" href="${path }/Eco2.do">입곡문화공원</a>
+          <a class="navbar-item" href="${path }/Eco3.do">입곡군립공원</a>
+          <a class="navbar-item" href="${path }/Eco4.do">연꽃테마파크</a>
+          <a class="navbar-item" href="${path }/Eco5.do">악양생태공원</a>
           <hr class="navbar-divider">
 		<span class="navbar-item"><strong>역사여행</strong></span>
-		<a class="navbar-item" href="">함안광심정</a>
-		<a class="navbar-item" href="">함안악양루</a>
-		<a class="navbar-item" href="">원효암 칠성각</a>
-		<a class="navbar-item" href="">장춘사 대웅전</a>
+		<a class="navbar-item" href="${path }/History1.do">함안광심정</a>
+		<a class="navbar-item" href="${path }/History2.do">함안악양루</a>
+		<a class="navbar-item" href="${path }/History3.do">원효암 칠성각</a>
+		<a class="navbar-item" href="${path }/History4.do">장춘사 대웅전</a>
         </div>
       </div>
       <div class="navbar-item has-dropdown is-hoverable">
