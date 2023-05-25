@@ -217,3 +217,4 @@ SELECT * FROM complain where id='kim' order by cno desc LIMIT 0,10;
 select * from photog;
 select * from notice;
 -- update notice set views=views+1 where nno='20001';
+desc photog;

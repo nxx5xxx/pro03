@@ -24,6 +24,7 @@
 
 <button type="button" id="addBtn"> 데이터 갖고오기</button>
 <script>
+
  	$(document).ready(function(){
 		$("#addBtn").click(function(){
 			$.ajax({
