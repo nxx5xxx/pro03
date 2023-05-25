@@ -13,7 +13,13 @@ public class MySQL8 {
 	
 	//유저한개 불러오기
 		final static String USER1_SELECT_FROM_ID = "select * from user1 where id=?";
-	
+	//모든 상황에서 페이징 처리 가능하게끔
+		final static String ALL_TABLE_PAGE = "select * from ? order by ? desc LIMIT ?,?";
+		
+	//페이징처리
+		final static String PHOTOG_PAGE = "SELECT * FROM photog ORDER BY pno desc LIMIT ?,?";
+		final static String PHOTOG_PAGE_COUNT = "select count(*) as cnt from photog";
+		
 	//공지사항
 		final static String NOTICE_SELECT_ALL = "SELECT * FROM notice ORDER BY nno desc";
 		final static String NOTICE_SELECT_ONE = "select * from notice where nno=?";
