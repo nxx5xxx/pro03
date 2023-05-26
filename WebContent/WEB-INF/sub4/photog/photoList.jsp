@@ -19,9 +19,13 @@ img {border:0;}
 .sec_img {width:410px; height:200px; margin:12.5px auto; background-color:black}
 .img_area {width:100%; height:100%;}
 .text_area {width:410px; margin:12.5px auto; margin-top:25px;}
-.pagelist {clear:both; width:560px;height:50px; margin:0 auto; background-color:green}
+
 
 .r_n_v {width:33%}
+
+.pagelist {clear:both; width:560px;height:50px; margin:0 auto; background-color:green}
+.listboxc {cursor:pointer;width:50px;height:50px;border: 1px solid rgb(224, 224, 224); float:left;margin-right:20px;text-align:center;line-height:50px}
+.listbox {width:50px;height:50px;border: 1px solid rgb(224, 224, 224); float:left;margin-right:20px;text-align:center;line-height:50px}
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
@@ -69,15 +73,36 @@ img {border:0;}
 
 	
 	<div class="blank"></div>
-	<div class="pagelist">리스트 올곳
-	
-		<a href="">${pvo.priv }</a>
+	<c:set var="listwidth" value="${(pvo.nowBlockLastPage-pvo.startPage+3)*70-20}"/>
+	<div class="pagelist" style="width: ${listwidth}px;height:100%">
+			
+			<c:if test="${pvo.priv!=' X ' }">
+			<div class="listboxc" onclick="location.href='${path1 }/PhotoList.do?nowPage=${pvo.startPage-1}'">
+			이전
+			</div>
+			</c:if>
+			<c:if test="${pvo.priv==' X ' }">
+			<div class="listbox">
+			이전
+			</div>
+			</c:if>
+			
 		<c:forEach var="x" begin="${pvo.startPage}" end="${pvo.nowBlockLastPage}" step="1">
-		<a href="${path1 }/PhotoList.do?nowPage=${x }">${x }</a>
+		<div class="listboxc" onclick="location.href='${path1 }/PhotoList.do?nowPage=${x }'">${x }</div>
 		</c:forEach>
-		<a href="">${pvo.next }</a>
+			<c:if test="${pvo.next!=' X ' }">
+			<div class="listboxc" onclick="location.href='${path1 }/PhotoList.do?nowPage=${pvo.nowBlockLastPage+1}'" style="margin-right:0">
+			다음
+			</div>
+			</c:if>
+			<c:if test="${pvo.priv==' X ' }">
+			<div class="listbox" style="margin-right:0">
+			다음
+			</div>
+			</c:if>
+
 	</div>
-	<div style="text-align:center; margin-top:20px"><input class="button is-info" type="button" value="새글 등록" onclick="location.href='${path1}/GoPhotoAdd.do'"></div>
+	<div style="clear:both;text-align:center; margin-top:60px"><input class="button is-info" type="button" value="새글 등록" onclick="location.href='${path1}/GoPhotoAdd.do'"></div>
 </article>
 	<script>
 	var sP= ${pvo.startPage};

@@ -27,6 +27,7 @@ img {border:0;}
 .cont_art {padding:20px;}
 .cont_adr {float:right; text-align:right}
 
+
 </style>
 </head>
 <body>

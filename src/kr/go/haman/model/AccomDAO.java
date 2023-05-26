@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import kr.go.haman.dto.Accom;
 import kr.go.haman.dto.Food;
+import kr.go.haman.dto.Notice;
+import kr.go.haman.vo.PageVO;
 
 public class AccomDAO {
 	private Connection conn = null;
@@ -127,7 +129,7 @@ public class AccomDAO {
 	}
 	
 	//글 삭제
-	public int deleteFood(String ano){
+	public int deleteAccom(String ano){
 		int cnt = 0;
 		try {
 			conn = MySQL.getConnection();
@@ -151,5 +153,67 @@ public class AccomDAO {
 		} catch (ClassNotFoundException e) { e.printStackTrace();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { MySQL.close(pstmt, conn); }
+	}
+	
+	
+	
+	
+	
+	//////////////////////////////////////페이징처리
+	public ArrayList<Accom> getSelectAllForPage(PageVO pvo){
+		ArrayList<Accom> accomList = new ArrayList<>();
+		try{
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.ACCOM_PAGE);
+			//System.out.println(pvo.getNowRecord());
+			pstmt.setInt(1, pvo.getNowRecord()-1);
+			pstmt.setInt(2, pvo.getViewRecord());
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				Accom accom = new Accom();
+				accom.setAno(rs.getString("ano"));
+				accom.setTitle(rs.getString("title"));
+				accom.setAddr(rs.getString("addr"));
+				accom.setTel(rs.getString("tel"));
+				accom.setFile1(rs.getString("file1"));
+				accom.setRegdate(rs.getString("regdate"));
+				accom.setViews(rs.getInt("views"));
+				accomList.add(accom);
+			}
+			
+			pvo = getPageNum(pvo);
+			
+		} catch(ClassNotFoundException e) {
+			System.out.println("오라클JDBC 파일이 잘못되었습니다");
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 잘못되었습니다");
+		} catch(Exception e){
+			System.out.println("식별할수 없는 오류가 발생했습니다.");
+		}
+		MySQL8.close(rs, pstmt, conn);
+		return accomList;
+	}
+	
+	public PageVO getPageNum(PageVO pvo){
+		try {
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.ACCOM_PAGE_COUNT);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				pvo.setAllRecord(rs.getInt(1));
+			}
+			
+			
+			
+			
+		} catch(ClassNotFoundException e) {
+			System.out.println("오라클JDBC 파일이 잘못되었습니다");
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 잘못되었습니다");
+		} catch(Exception e){
+			System.out.println("식별할수 없는 오류가 발생했습니다.");
+		}
+		MySQL8.close(rs, pstmt, conn);
+		return pvo;
 	}
 }

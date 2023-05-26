@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.go.haman.dto.Photog;
-import kr.go.haman.model.PageDAO;
 import kr.go.haman.model.PhotogDAO;
 import kr.go.haman.vo.PageVO;
 
@@ -23,9 +22,9 @@ public class PhotoList extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Photog> ptList = new ArrayList<>();
 		PageVO pvo =new PageVO();
-		PageDAO pagedao = new PageDAO();
+		PhotogDAO ptd = new PhotogDAO();
 		pvo.setNowPage(1);
-		System.out.println("나우페이지 값"+request.getParameter("nowPage"));
+		//System.out.println("나우페이지 값"+request.getParameter("nowPage"));
 		if(request.getParameter("nowPage")!=null){
 			 pvo.setNowPage(Integer.parseInt(request.getParameter("nowPage")));
 		}
@@ -33,7 +32,7 @@ public class PhotoList extends HttpServlet {
 		int vP = 5;
 		pvo.setViewRecord(vR);
 		pvo.setViewPage(vP);
-		ptList = pagedao.getSelectAll(pvo);
+		ptList = ptd.getSelectAllForPage(pvo);
 		request.setAttribute("ptl", ptList);
 		//pvo = pagedao.getPageNum(pvo);
 		pvo.getAllPage();

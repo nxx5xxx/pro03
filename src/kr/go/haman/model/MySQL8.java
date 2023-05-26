@@ -20,6 +20,15 @@ public class MySQL8 {
 		final static String PHOTOG_PAGE = "SELECT * FROM photog ORDER BY pno desc LIMIT ?,?";
 		final static String PHOTOG_PAGE_COUNT = "select count(*) as cnt from photog";
 		
+		final static String NOTICE_PAGE = "SELECT * FROM notice ORDER BY nno desc LIMIT ?,?";
+		final static String NOTICE_PAGE_COUNT = "select count(*) as cnt from notice";
+		
+		final static String ACCOM_PAGE = "SELECT * FROM accom ORDER BY ano desc LIMIT ?,?";
+		final static String ACCOM_PAGE_COUNT = "select count(*) as cnt from accom";
+		
+		final static String FOOD_PAGE = "SELECT * FROM food ORDER BY fno desc LIMIT ?,?";
+		final static String FOOD_PAGE_COUNT = "select count(*) as cnt from food";
+		
 	//공지사항
 		final static String NOTICE_SELECT_ALL = "SELECT * FROM notice ORDER BY nno desc";
 		final static String NOTICE_SELECT_ONE = "select * from notice where nno=?";

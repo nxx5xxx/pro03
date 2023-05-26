@@ -13,6 +13,14 @@
 .title { padding-top:36px; padding-bottom:10px; }
 .agree_fr { width: 1000px; padding: 24px; margin: 10px auto; }
 .image { display: block; width: 300px; height: 250px; }
+
+/* 추가부분 */
+.blank {clear:left; height:50px;}
+
+.pagelist {clear:both; width:560px;height:50px; margin:0 auto; background-color:green}
+.listboxc {cursor:pointer;width:50px;height:50px;border: 1px solid rgb(224, 224, 224); float:left;margin-right:20px;text-align:center;line-height:50px}
+.listbox {width:50px;height:50px;border: 1px solid rgb(224, 224, 224); float:left;margin-right:20px;text-align:center;line-height:50px}
+
 </style>
 </head>
 <body>
@@ -65,6 +73,38 @@
 		</article>		
 	</div>
 </div>
+
+<!-- 추가부분 -->
+	<div class="blank"></div>
+		<c:set var="listwidth" value="${(pvo.nowBlockLastPage-pvo.startPage+3)*70-20}"/>
+		<div class="pagelist" style="width: ${listwidth}px;height:100%">
+			<c:if test="${pvo.priv!=' X ' }">
+			<div class="listboxc" onclick="location.href='${path1 }/Food.do?nowpage=${pvo.startPage-1}'">
+			이전
+			</div>
+			</c:if>
+			<c:if test="${pvo.priv==' X ' }">
+			<div class="listbox">
+			이전
+			</div>
+			</c:if>
+			
+		<c:forEach var="x" begin="${pvo.startPage}" end="${pvo.nowBlockLastPage}" step="1">
+		<div class="listboxc" onclick="location.href='${path1 }/Food.do?nowPage=${x }'">${x }</div>
+		</c:forEach>
+			<c:if test="${pvo.next!=' X ' }">
+			<div class="listboxc" onclick="location.href='${path1 }/Food.do?nowPage=${pvo.nowBlockLastPage+1}'" style="margin-right:0">
+			다음
+			</div>
+			</c:if>
+			<c:if test="${pvo.next==' X ' }">
+			<div class="listbox" style="margin-right:0">
+			다음
+			</div>
+			</c:if>
+		</div>
+<div class="blank"></div>
+<!--  -->
 <%@ include file="/footer.jsp" %>
 </body>
 </html>

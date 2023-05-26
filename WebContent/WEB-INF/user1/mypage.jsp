@@ -17,7 +17,7 @@ td { width: 300px; }
 </style>
 </head>
 <body>
-<%@ include file="../../header.jsp" %>
+<%@ include file="/header.jsp" %>
 <div class="content" style="padding-top:30px; margin-top:30px; border-top:3px solid #333; min-height:500px; ">
 	<section class="agree_fr">
 		<h2 class="title" style="text-align: center;">내 정보</h2>
@@ -61,10 +61,9 @@ td { width: 300px; }
 						 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
 							<a href="${path1 }/UserUpdate.do?id=${user.id}" class="button is-success">정보 수정</a>
 							&nbsp; &nbsp; &nbsp; &nbsp;
-							<a href="${path1 }/ComplainList.do?id=${user.id}" class="button is-warning">나의 민원</a>
+							<a href="${path1 }/GoComplainList.do?id=${user.id}" class="button is-warning">나의 민원</a>
 							&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 							<a href="${path1 }/UserDelete.do?id=${user.id}" class="button is-danger is-light" onclick="return delCheck()">회원 탈퇴</a>
-							<!-- <a href="javascript:history.go(-1)" class="btn btn-primary">뒤로</a>	 -->					
 						</td>
 					</tr>
 				</tbody>
@@ -79,6 +78,6 @@ td { width: 300px; }
 		</div>	
 	</section>	
 </div>
-<%@ include file="../../footer.jsp" %>
+<%@ include file="/footer.jsp" %>
 </body>
 </html>
