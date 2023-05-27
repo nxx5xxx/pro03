@@ -79,9 +79,9 @@
           <a class="navbar-item" href="Accom.do">숙박시설</a>
           <hr class="navbar-divider">
 		<span class="navbar-item"><strong>교통안내</strong></span>
-		<a class="navbar-item" href="">시내/시외버스</a>
-		<a class="navbar-item" href="">공영버스/농어촌버스</a>
-		<a class="navbar-item" href="">기차/택시</a>
+		<a class="navbar-item" href="${path }/Traffic1.do">시내/시외버스</a>
+		<a class="navbar-item" href="${path }/Traffic2.do">공영버스/농어촌버스</a>
+		<a class="navbar-item" href="${path }/Traffic3.do">기차/택시</a>
         </div>
       </div>
       </div>

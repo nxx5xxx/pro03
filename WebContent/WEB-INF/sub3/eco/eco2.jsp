@@ -8,15 +8,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 페이지</title>
+<title>입곡 문화공원</title>
 <style>
 img {border:0;}
 .main_wrap {width:1000px; margin:0 auto;}
 .blank {clear:left; height:50px;}
 .divide {height:35px ; background-color:lightgray;text-align:center;line-height:35px}
 
-.img_sec {width:600px;height:700px; background-color:rgb(88,173,64);margin:10px 200px;float:right}
-.img1 {width:570px; height:488px;margin:15px}
+.img_sec {width:600px;height:705px; background-color:rgb(88,173,64);margin:10px 200px;float:right}
+.img1 {display:inline-block;width:570px; height:488px;margin:15px ;}
+#img_btn1:checked ~ .img1 {background: url(${path1 }/img/eco/ipgok1.jpg) no-repeat;background-size:570px 488px;}
+#img_btn2:checked ~ .img1 {background: url(${path1 }/img/eco/ipgok2.jpg) no-repeat;background-size:570px 488px;}
+#img_btn3:checked ~ .img1 {background: url(${path1 }/img/eco/ipgok3.jpg) no-repeat;background-size:570px 488px;}
+.btn_hidden {display:none}
 .img23_wrap {width:570px;height :155px; margin:13.5px 15px;text-align:center }
 .sm_img1,.sm_img2,.sm_img3 {width:180px; height:155px}
 .sm_img1 {float:left}
@@ -46,14 +50,21 @@ img {border:0;}
 		<h2 class="is-size-2" style="color:rgb(88,173,64);font-weight:bold">${mapname }</h2>
 		<hr style="width:265px;margin:0;background-color:lightgray">
 	</div>
+	
 <section class="img_sec">
-	<div class="img1_wrap"><img src="${path1 }/img/eco/hamandookbang1.jfif" class="img1"></div>
+	<div class="img1_wrap">
+		<input type="radio" name="img_btn" id="img_btn1" checked class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn2" class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn3" class="btn_hidden">
+	<div class="img1"></div>
+	</div>
 	<div class="img23_wrap">
-	<img src="${path1 }/img/eco/hamandookbang1.jfif" class="sm_img1">
-	<img src="${path1 }/img/eco/hamandookbang2.jfif" class="sm_img2">
-	<img src="${path1 }/img/eco/hamandookbang3.jpg" class="sm_img3">
+	<label for="img_btn1"><img src="${path1 }/img/eco/ipgok1.jpg" class="sm_img1"></label>
+	<label for="img_btn2"><img src="${path1 }/img/eco/ipgok2.jpg" class="sm_img2"></label>
+	<label for="img_btn3"><img src="${path1 }/img/eco/ipgok3.jpg" class="sm_img3"></label>
 	</div>
 </section>
+
 <div class="content_blank">
 </div>
 

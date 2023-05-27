@@ -50,7 +50,7 @@
 				         	<strong><span>전화번호: </span></strong><span>${food.tel }</span>
 				          	<br>
 				        </p>
-			          	<a class="button is-info" href="" >길찾기</a>
+			          	<input type="button" class="button is-info" onclick="findaddr(${food.fno })" value="길찾기">
 			          	<c:if test="${sid=='admin' }">
         				  <a class="button is-link is-light" href="${path1 }/FoodUpdate.do?fno=${food.fno }"><strong>수정</strong></a>
         				  <a class="button is-light" href="${path1 }/FoodDel.do?fno=${food.fno }" onclick="return delCheck()"><strong>삭제</strong></a>
@@ -75,6 +75,16 @@
 </div>
 
 <!-- 추가부분 -->
+<script>
+function findaddr(fno){
+		var popX = (window.screen.width / 2) - (1100 / 2);
+		var popY= (window.screen.height / 2) - (720 / 2);
+		var fno = fno
+		window.open("${path1 }/GoFoodMap.do?fno="+fno,"길 찾기","status=no,toolbar=no,scrollbars=no, width=1100, height=720,left="+ popX + ", top="+ popY);
+}
+</script>
+
+
 	<div class="blank"></div>
 		<c:set var="listwidth" value="${(pvo.nowBlockLastPage-pvo.startPage+3)*70-20}"/>
 		<div class="pagelist" style="width: ${listwidth}px;height:100%">
