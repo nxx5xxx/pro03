@@ -30,14 +30,14 @@ img {border:0;}
 	<div style="clear:both;padding:20px">	
 	<table class="table is-bordered" style="width:100%;text-align:center;">
 		<tr style="background-color:rgb(230,243,255);text-align:center;font-weight:600;">
-			<td colspan="2">문화재명</td>
+			<td colspan="2">구분</td>
 			<td>일반</td>
 			<td>청소년</td>
 			<td>어린이</td>
 			<td colspan="3">비고</td>
 		</tr>
 		<tr>
-			<td rowspan="2" style="background-color:rgb(230,243,255);">함안군/창원시	</td>
+			<td rowspan="2" style="vertical-align:middle;background-color:rgb(230,243,255);">함안군/창원시	</td>
 			<td style="background-color:rgb(230,243,255);">현금</td>
 			<td>1,500원</td>
 			<td>1,000원</td>
