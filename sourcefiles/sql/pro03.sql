@@ -332,5 +332,28 @@ insert into	notice values('20109','더미제목109','더미본문입니다9','ad
 
 
 
-delete from notice where nno>='20013';
+-- delete from notice where nno>='20013';
+
+use haman;
+show tables;
+
+-- 리뷰테이블 리뷰 고유번호, 리뷰 참조번호 , 아이디(한명이 악의적으로 평점을 여러개 줄 수 없도록), 포인트 리뷰점수 , 리뷰 내용 (요구할 시)
+create table review(rno varchar(5) primary key,wno varchar(5) not null, 
+	id varchar(20), point float not null default 5 , content varchar(1000),
+    FOREIGN KEY(ID) REFERENCES USER1(ID));
+
+-- 7만번대    
+select * from review;
+
+select * from review where id='kim' and wno='60009';
+
+-- accom에 포인트 컬럼 추가
+
+-- alter table accom add point float default 0;
+select * from accom;
+select * from food;
+
+update accom set point=5,views=1 where ano="60009";
+
+SELECT * FROM review ORDER BY rno DESC LIMIT 1;
 

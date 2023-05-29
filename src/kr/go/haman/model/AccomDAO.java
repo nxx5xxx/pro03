@@ -178,6 +178,7 @@ public class AccomDAO {
 				accom.setFile1(rs.getString("file1"));
 				accom.setRegdate(rs.getString("regdate"));
 				accom.setViews(rs.getInt("views"));
+				accom.setPoint(rs.getFloat("point"));
 				accomList.add(accom);
 			}
 			
