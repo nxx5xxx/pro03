@@ -104,10 +104,7 @@
 
 ## 스토리보드
 
-![스토리보드](./readmeimg/storyboard1.PNG "목차")
-
-<br>
-
+![스토리보드](./readmeimg/storyboard1.png "목차")
 ![스토리보드](./readmeimg/storyboard2.png "메뉴구성안")
 ![스토리보드](./readmeimg/storyboard3.png "메뉴설계서")
 ![스토리보드](./readmeimg/storyboard4.png "사용자 시나리오")
