@@ -45,6 +45,17 @@
 - 답변은 관리자만 달수 있도록 구현
 - 답변이 달린 민원은 답변 완료로 표시하도록 구현
 
+### 음식점 및 숙소
+- 해당 음식점 또는 숙소에 별점을 구현
+- 길찾기 페이지에 주소를 이용해 연결되도록 구현
+- 관리자가 음식점 및 숙소를 수정 및 추가 삭제가 용이하게 구현
+
+### 포토갤러리
+- 로그인 한 사용자는 글을 쓸 수 있도록 구현
+- multipart폼을 이용해 파일 첨부 및 첨부한 파일을 페이지에 나타내도록 구현
+- 자신의 글 수정 및 삭제기능 구현
+- 댓글기능 구현
+
 
 ### 관리자
 - 관리자는 회원정보를 수정 , 조회 및 탈퇴 가 가능하여야한다
@@ -52,6 +63,7 @@
 - 관리자는 숙소 게시판의 등록 수정 및 삭제가 가능하여야한다
 - 관리자는 음식점 게시판의 등록 수정 및 삭제가 가능하여야 한다
 - 관리자는 질문및 답변에서 질문 수정은 못하지만 삭제 할 수있어야 하며 그에대한 답변을 달 수 있어야한다
+
 
 
 ---
@@ -68,10 +80,6 @@
 
 ![논리적 설계](./readmeimg/logiccheck.PNG "논리검증 체크리스트")
 
-- 논리적 ERD
-
-![논리적 설계](./readmeimg/logicERD.PNG "논리적 ERD")
-
 
 ---
 ## 물리적 설계
@@ -86,19 +94,66 @@
 ![물리적 설계](./readmeimg/classDiagram.PNG "데이터베이스 ERD")
 
 ---
-## 시퀀스 설계
-- 시퀀스 설명
 
-![시퀀스 설계](./readmeimg/jungboERD1.PNG "시퀀스 설명")
-
-![시퀀스 설계](./readmeimg/jungboERD2.PNG "시퀀스 설명")
-
-![시퀀스 설계](./readmeimg/jungboERD3.PNG "시퀀스 설명")
-
-![시퀀스 설계](./readmeimg/jungboERD4.PNG "시퀀스 설명")
-
----
 ## 프로젝트 구성
 - (리소스구성도)
 
 ![프로젝트 구성](./readmeimg/resource.PNG "리소스 구성도")
+
+---
+
+## 스토리보드
+
+![스토리보드](./readmeimg/storyboard1.PNG "목차")
+
+![스토리보드](./readmeimg/storyboard2.PNG "메뉴구성안")
+
+![스토리보드](./readmeimg/storyboard3.PNG "메뉴설계서")
+
+![스토리보드](./readmeimg/storyboard4.PNG "사용자 시나리오")
+
+![스토리보드](./readmeimg/storyboard6.PNG "UI프로세스")
+
+![스토리보드](./readmeimg/storyboard7.PNG "UI프로세스 회원가입")
+
+![스토리보드](./readmeimg/storyboard8.PNG "UI프로세스 공지사항")
+
+![스토리보드](./readmeimg/storyboard9.PNG "스토리보드")
+
+![스토리보드](./readmeimg/storyboard10.PNG "메인페이지 구조도")
+![스토리보드](./readmeimg/storyboard11.PNG "회원 약관 동의 페이지")
+![스토리보드](./readmeimg/storyboard12.PNG "회원 가입 폼 페이지")
+![스토리보드](./readmeimg/storyboard13.PNG "로그인 페이지")
+![스토리보드](./readmeimg/storyboard14.PNG "회원 정보 페이지")
+![스토리보드](./readmeimg/storyboard15.PNG "회원 정보 수정 페이지")
+![스토리보드](./readmeimg/storyboard16.PNG "회원 탈퇴 페이지")
+![스토리보드](./readmeimg/storyboard17.PNG "공지사항 목록")
+![스토리보드](./readmeimg/storyboard18.PNG "공지사항 글쓰기")
+![스토리보드](./readmeimg/storyboard19.PNG "공지사항 자세히보기")
+![스토리보드](./readmeimg/storyboard20.PNG "공지사항 글 수정")
+![스토리보드](./readmeimg/storyboard21.PNG "고객민원 글쓰기")
+![스토리보드](./readmeimg/storyboard22.PNG "고객민원 나의 민원")
+![스토리보드](./readmeimg/storyboard23.PNG "고객민원 민원 자세히보기")
+![스토리보드](./readmeimg/storyboard24.PNG "고객민원 민원 답변")
+![스토리보드](./readmeimg/storyboard25.PNG "고객민원 나의민원 자세히보기 - 관리자")
+![스토리보드](./readmeimg/storyboard26.PNG "고객민원 답변 수정")
+![스토리보드](./readmeimg/storyboard27.PNG "함안수박축제")
+![스토리보드](./readmeimg/storyboard28.PNG "함안 낙화놀이")
+![스토리보드](./readmeimg/storyboard29.PNG "해바라기축제")
+![스토리보드](./readmeimg/storyboard30.PNG "함안여행 구조도")
+![스토리보드](./readmeimg/storyboard31.PNG "함안 광심정")
+![스토리보드](./readmeimg/storyboard32.PNG "함안 악양 둑방")
+![스토리보드](./readmeimg/storyboard33.PNG "관광안내 - 포토갤러리")
+![스토리보드](./readmeimg/storyboard34.PNG "포토갤러리 글 쓰기")
+![스토리보드](./readmeimg/storyboard35.PNG "포토갤러리 자세히보기")
+![스토리보드](./readmeimg/storyboard36.PNG "포토갤러리 글 수정")
+![스토리보드](./readmeimg/storyboard37.PNG "시내/시외버스")
+![스토리보드](./readmeimg/storyboard38.PNG "시내/시외버스2")
+![스토리보드](./readmeimg/storyboard39.PNG "공영버스 농어촌버스")
+![스토리보드](./readmeimg/storyboard40.PNG "전통시장")
+![스토리보드](./readmeimg/storyboard41.PNG "전통시장 자세히보기")
+![스토리보드](./readmeimg/storyboard42.PNG "음식점")
+![스토리보드](./readmeimg/storyboard43.PNG "음식점 길찾기")
+![스토리보드](./readmeimg/storyboard44.PNG "음식점 수정")
+![스토리보드](./readmeimg/storyboard45.PNG "음식점 신규등록")
+
