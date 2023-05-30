@@ -1,4 +1,3 @@
-
 -- create database haman;
  USE haman;
 -- set autocommit=true;
@@ -144,19 +143,8 @@ insert into complain values('30002', '민원제목2', '민원에대한 본문입
 insert into complain values('30003', '민원제목3', '민원에대한 본문입니다3','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30003');
 insert into complain values('30004', '민원제목4', '민원에대한 본문입니다4','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30004');
 insert into complain values('30005', '민원제목5', '민원에대한 본문입니다5','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30005');
--- 민원 답변 더미 데이터
-insert into complain values('30006', '답변제목1', '민원에대한 답변입니다1','admin', '관리자', '함안군청','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,2,'30001');
- update complain set comsw=3 where cno='30001';
-SELECT * FROM complain where refno='30001' and comsw=2;
-
-select * from complain;
-delete from complain where cno="30008";
 
 desc photog;
-
-SELECT * FROM complain where comsw=1 or comsw=3 order by cno desc;
-select * from notice;
-update notice set file2=null where nno='20014';
 
 -- 포토갤러리 더미데이터
 INSERT INTO photog VALUES('40001','포토갤러리 제목1','포토갤러리의 내용입니다1','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT);
@@ -207,14 +195,7 @@ DESC photog;
 SELECT * FROM photog ORDER BY pno DESC;
 SELECT * FROM photog ORDER BY pno DESC LIMIT 1;
 
-commit;
-SELECT * FROM USER1;
+SELECT * FROM user1;
 
-SHOW TABLES;
+show variables like 'lower_case_table_names';
 
-SELECT * FROM complain where id='kim' order by cno desc LIMIT 0,10;
-
-select * from photog;
-select * from notice;
--- update notice set views=views+1 where nno='20001';
-desc photog;

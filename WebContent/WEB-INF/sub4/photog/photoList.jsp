@@ -19,7 +19,7 @@ img {border:0;}
 .sec_img {width:410px; height:200px; margin:12.5px auto; background-color:black}
 .img_area {width:100%; height:100%;}
 .text_area {width:410px; margin:12.5px auto; margin-top:25px;}
-.pagelist {clear:both; width:560px;height:50px; margin:0 auto; background-color:black}
+.pagelist {clear:both; width:560px;height:50px; margin:0 auto; background-color:green}
 
 .r_n_v {width:33%}
 </style>
@@ -69,9 +69,23 @@ img {border:0;}
 
 	
 	<div class="blank"></div>
-	<div class="pagelist">리스트 올곳</div>
+	<div class="pagelist">리스트 올곳
+	
+		<a href="">${pvo.priv }</a>
+		<c:forEach var="x" begin="${pvo.startPage}" end="${pvo.nowBlockLastPage}" step="1">
+		<a href="${path1 }/PhotoList.do?nowPage=${x }">${x }</a>
+		</c:forEach>
+		<a href="">${pvo.next }</a>
+	</div>
 	<div style="text-align:center; margin-top:20px"><input class="button is-info" type="button" value="새글 등록" onclick="location.href='${path1}/GoPhotoAdd.do'"></div>
 </article>
+	<script>
+	var sP= ${pvo.startPage};
+	var nBLP = ${pvo.nowBlockLastPage};
+	for(var x=sP;x<=nBLP;x++){
+		console.log(x);
+	}
+	</script>
 
 <%@ include file="/footer.jsp" %>
 </body>

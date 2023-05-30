@@ -2,11 +2,9 @@ package kr.go.haman.test;
 
 import java.util.Scanner;
 
-import org.junit.Test;
+public class Page {
 
-public class PagePN {
-	@Test
-	public void test() {
+	public static void main(String[] args) {
 		//총 레코드 수(글 수)
 		int allRecord;
 		//총 페이지 수 (글 수의 집합이 페이지
@@ -89,26 +87,6 @@ public class PagePN {
 			System.out.println("다음");
 		}
 		
-		sc.close();
 	}
 
 }
-/*페이징처리
-
-1.
-모든 레코드를 불러와 번호를 매김
-
-그 컬럼들을 한페이지당 불러올 셀 숫자로 나눔
-
-예 : 한페이지에 4칸을 보이게 하려면
-
-26개의 레코드를 불러왔다면
-26/4 = 6 나머지 2
-
-6 + 1 해서 총 7개의 페이지
-
-페이지를 몇개씩 보여줄지 결정함
-
-예: 5개씩
-
-7/5 = 다음페이지 1개. 자바로 ㄱ*/
