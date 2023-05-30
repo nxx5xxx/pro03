@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import kr.go.haman.dto.Accom;
 import kr.go.haman.dto.Food;
+import kr.go.haman.vo.PageVO;
 
 public class FoodDAO {
 	private Connection conn = null;
@@ -104,20 +106,15 @@ public class FoodDAO {
 			conn = MySQL.getConnection();
 			if(food.getFile1()==null){
 				pstmt = conn.prepareStatement(MySQL.FOOD_UPDATE2);
-				pstmt.setString(1, food.getTitle());
-				pstmt.setString(2, food.getAddr());
-				pstmt.setString(3, food.getTel());
-				pstmt.setString(4, food.getRegdate());
-				pstmt.setString(5, food.getFno());
+				pstmt.setString(4, food.getFno());
 			} else {
 				pstmt = conn.prepareStatement(MySQL.FOOD_UPDATE1);
-				pstmt.setString(1, food.getTitle());
-				pstmt.setString(2, food.getAddr());
-				pstmt.setString(3, food.getTel());
 				pstmt.setString(4, food.getFile1());
-				pstmt.setString(5, food.getRegdate());
-				pstmt.setString(6, food.getFno());
+				pstmt.setString(5, food.getFno());
 			}
+			pstmt.setString(1, food.getTitle());
+			pstmt.setString(2, food.getAddr());
+			pstmt.setString(3, food.getTel());
 			cnt = pstmt.executeUpdate();
 		} catch (ClassNotFoundException e) { e.printStackTrace();
 		} catch (SQLException e) { e.printStackTrace();
@@ -150,5 +147,62 @@ public class FoodDAO {
 		} catch (ClassNotFoundException e) { e.printStackTrace();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { MySQL.close(pstmt, conn); }
+	}
+	
+	//////////////////////////////////////페이징처리
+	public ArrayList<Food> getSelectAllForPage(PageVO pvo){
+		ArrayList<Food> foodList = new ArrayList<>();
+		try{
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.FOOD_PAGE);
+			pstmt.setInt(1, pvo.getNowRecord()-1);
+			pstmt.setInt(2, pvo.getViewRecord());
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				Food food = new Food();
+				food.setFno(rs.getString("fno"));
+				food.setTitle(rs.getString("title"));
+				food.setAddr(rs.getString("addr"));
+				food.setTel(rs.getString("tel"));
+				food.setFile1(rs.getString("file1"));
+				food.setRegdate(rs.getString("regdate"));
+				food.setViews(rs.getInt("views"));
+				foodList.add(food);
+			}
+			
+			pvo = getPageNum(pvo);
+			
+		} catch(ClassNotFoundException e) {
+			System.out.println("오라클JDBC 파일이 잘못되었습니다");
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 잘못되었습니다");
+		} catch(Exception e){
+			System.out.println("식별할수 없는 오류가 발생했습니다.");
+		}
+		MySQL8.close(rs, pstmt, conn);
+		return foodList;
+	}
+	
+	public PageVO getPageNum(PageVO pvo){
+		try {
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.FOOD_PAGE_COUNT);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				pvo.setAllRecord(rs.getInt(1));
+			}
+			
+			
+			
+			
+		} catch(ClassNotFoundException e) {
+			System.out.println("오라클JDBC 파일이 잘못되었습니다");
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 잘못되었습니다");
+		} catch(Exception e){
+			System.out.println("식별할수 없는 오류가 발생했습니다.");
+		}
+		MySQL8.close(rs, pstmt, conn);
+		return pvo;
 	}
 }

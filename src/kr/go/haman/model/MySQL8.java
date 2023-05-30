@@ -20,6 +20,23 @@ public class MySQL8 {
 		final static String PHOTOG_PAGE = "SELECT * FROM photog ORDER BY pno desc LIMIT ?,?";
 		final static String PHOTOG_PAGE_COUNT = "select count(*) as cnt from photog";
 		
+		final static String NOTICE_PAGE = "SELECT * FROM notice ORDER BY nno desc LIMIT ?,?";
+		final static String NOTICE_PAGE_COUNT = "select count(*) as cnt from notice";
+		
+		final static String ACCOM_PAGE = "SELECT * FROM accom ORDER BY ano desc LIMIT ?,?";
+		final static String ACCOM_PAGE_COUNT = "select count(*) as cnt from accom";
+		
+		final static String FOOD_PAGE = "SELECT * FROM food ORDER BY fno desc LIMIT ?,?";
+		final static String FOOD_PAGE_COUNT = "select count(*) as cnt from food";
+	//리뷰
+		final static String REVIEW_SELECT_FROM_ID_WNO = "select * from review where id=? and wno=?";
+		final static String REVIEW_SELECT_DESC_LIMIT = "SELECT * FROM review ORDER BY rno DESC LIMIT 1";
+		final static String REVIEW_INSERT = "insert into review values(?,?,?,?,?)";
+	
+	//숙소테이블 리뷰포인트 업데이트
+		final static String REVIEW_UPDATE_ACCOM = "update accom set point=point+?,views=views+1 where ano=?";
+		
+		
 	//공지사항
 		final static String NOTICE_SELECT_ALL = "SELECT * FROM notice ORDER BY nno desc";
 		final static String NOTICE_SELECT_ONE = "select * from notice where nno=?";

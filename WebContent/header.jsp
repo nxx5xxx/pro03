@@ -11,7 +11,8 @@
 <link href="source/bulma.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <style>
-.navbar-link { margin-right: 60px; }
+.navbar-link { margin-right: 50px; }
+#adminmode { width: 71%; }
 </style>
 <header id="header" class="container">
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -73,14 +74,14 @@
           <a class="navbar-item" href="${path }/PhotoList.do">포토갤러리</a>
           <hr class="navbar-divider">
           <span class="navbar-item"><strong>관광지도</strong></span>
-          <a class="navbar-item" href="">전통시장</a>
+          <a class="navbar-item" href="Market.do">전통시장</a>
           <a class="navbar-item" href="Food.do">음식점</a>
           <a class="navbar-item" href="Accom.do">숙박시설</a>
           <hr class="navbar-divider">
 		<span class="navbar-item"><strong>교통안내</strong></span>
-		<a class="navbar-item" href="">시내/시외버스</a>
-		<a class="navbar-item" href="">공영버스/농어촌버스</a>
-		<a class="navbar-item" href="">기차/택시</a>
+		<a class="navbar-item" href="${path }/Traffic1.do">시내/시외버스</a>
+		<a class="navbar-item" href="${path }/Traffic2.do">공영버스/농어촌버스</a>
+		<a class="navbar-item" href="${path }/Traffic3.do">기차/택시</a>
         </div>
       </div>
       </div>
@@ -97,8 +98,9 @@
           <a class="button is-light" href="UserLogout.do">로그아웃</a>
          </c:if>
          <c:if test="${sid=='admin' }">
-          <a class="button is-primary" href="Admin.do"><strong>관리자 페이지</strong></a>
-          <a class="button is-light" href="UserLogout.do">로그아웃</a>
+          <a class="button is-warning is-fullwidth" href="#" id="adminmode"><strong>관리자</strong></a>
+          <a class="button is-light" href="AdminUser.do">회원관리</a>
+          <a class="button is-danger is-light" href="UserLogout.do">로그아웃</a>
          </c:if>
         </div>
       </div>

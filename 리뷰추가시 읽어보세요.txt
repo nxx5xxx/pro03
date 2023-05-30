@@ -1,0 +1,101 @@
+리뷰테이블 만들고 dto만들기
+-- 리뷰테이블 리뷰 고유번호, 리뷰 참조번호 , 아이디(한명이 악의적으로 평점을 여러개 줄 수 없도록), 포인트 리뷰점수 , 리뷰 내용 (요구할 시)
+create table review(rno varchar(5) primary key,wno varchar(5) not null, 
+	id varchar(20), point float not null default 5 , content varchar(1000),
+    FOREIGN KEY(ID) REFERENCES USER1(ID));
+
+
+
+
+
+views를 리뷰평점 올릴때마다 올라가는 수로 두고
+accom에 point 라는 리뷰점수를 넣는다
+point는 그대로 올리고
+리스트에서 출력시 포인트/views로 해서 평균점수를 구해준다
+//////////////////////////////////////////////////////
+0529
+리뷰 포인트 추가
+
+accom alter테이블 명령어로
+point 컬럼추가함
+alter table accom add point float default 0;
+
+dto에 point항목 추가
+	private float point;
+//게터세터도 추가해줘야함
+
+MySQL(태정씨꺼)
+인서트구문 point때문에 default하나 추가
+public final static String ACCOM_INSERT = "insert into accom values(?,?,?,?,?,default,default,default)";
+
+
+
+//accomDAO에서
+public ArrayList<Accom> getSelectAllForPage(PageVO pvo){
+		ArrayList<Accom> accomList = new ArrayList<>();
+		try{
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.ACCOM_PAGE);
+			//System.out.println(pvo.getNowRecord());
+			pstmt.setInt(1, pvo.getNowRecord()-1);
+			pstmt.setInt(2, pvo.getViewRecord());
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				Accom accom = new Accom();
+				accom.setAno(rs.getString("ano"));
+				accom.setTitle(rs.getString("title"));
+				accom.setAddr(rs.getString("addr"));
+				accom.setTel(rs.getString("tel"));
+				accom.setFile1(rs.getString("file1"));
+				accom.setRegdate(rs.getString("regdate"));
+				accom.setViews(rs.getInt("views"));
+//이부분 추가함
+				accom.setPoint(rs.getFloat("point"));
+//
+				accomList.add(accom);
+			}
+			
+			pvo = getPageNum(pvo);
+			
+		} catch(ClassNotFoundException e) {
+			System.out.println("오라클JDBC 파일이 잘못되었습니다");
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 잘못되었습니다");
+		} catch(Exception e){
+			System.out.println("식별할수 없는 오류가 발생했습니다.");
+		}
+		MySQL8.close(rs, pstmt, conn);
+		return accomList;
+	}
+
+
+///////////
+
+accom.jsp 수정
+
+			      <!--  -->
+			      <div>
+			      		
+			      		점수 ${Accom.point}
+			      		리뷰쓴사람수 ${Accom.views}
+			      		평균점수 ${Accom.point/Accom.views}
+			      		<c:if test="${sid!=null }"> 			          	
+			          	<input type="button" class="button is-info" value="별점주기" onclick="reviewpage(${Accom.ano })">
+			          	</c:if>
+			          	</div>
+			      <!--  -->
+
+이부분 추가해줫고
+스크립트부분
+
+<!-- 0529 리뷰 추가부분 -->
+<script>
+function reviewpage(wno){
+	var popX = (window.screen.width / 2) - (600 / 2);
+	var popY= (window.screen.height / 2) - (200 / 2);
+	var wno = wno
+	window.open("${path1 }/ReviewCtrl.do?wno="+wno,"길 찾기","status=no,toolbar=no,scrollbars=no, width=600, height=200,left="+ popX + ", top="+ popY);
+}
+</script>
+
+추가해놓음

@@ -8,15 +8,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 페이지</title>
+<title>함안 광심정</title>
 <style>
 img {border:0;}
 .main_wrap {width:1000px; margin:0 auto;}
 .blank {clear:left; height:50px;}
 .divide {height:35px ; background-color:lightgray;text-align:center;line-height:35px}
 
-.img_sec {width:600px;height:700px; background-color:rgb(241,92,48);margin:10px 200px;float:right}
-.img1 {width:570px; height:488px;margin:15px}
+.img_sec {width:600px;height:705px; background-color:rgb(241,92,48);margin:10px 200px;float:right}
+.img1 {display:inline-block;width:570px; height:488px;margin:15px ;}
+#img_btn1:checked ~ .img1 {background: url(${path1 }/img/his/haman_gwang.jpg) no-repeat;background-size:570px 488px;}
+#img_btn2:checked ~ .img1 {background: url(${path1 }/img/his/haman_gwang2.jpg) no-repeat;background-size:570px 488px;}
+#img_btn3:checked ~ .img1 {background: url(${path1 }/img/his/haman_gwang3.jpg) no-repeat;background-size:570px 488px;}
+.btn_hidden {display:none}
 .img23_wrap {width:570px;height :155px; margin:13.5px 15px;text-align:center }
 .sm_img1,.sm_img2,.sm_img3 {width:180px; height:155px}
 .sm_img1 {float:left}
@@ -47,13 +51,19 @@ img {border:0;}
 		<hr style="width:265px;margin:0;background-color:lightgray">
 	</div>
 <section class="img_sec">
-	<div class="img1_wrap"><img src="${path1 }/img/eco/hamandookbang1.jfif" class="img1"></div>
+	<div class="img1_wrap">
+		<input type="radio" name="img_btn" id="img_btn1" checked class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn2" class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn3" class="btn_hidden">
+	<div class="img1"></div>
+	</div>
 	<div class="img23_wrap">
-	<img src="${path1 }/img/eco/hamandookbang1.jfif" class="sm_img1">
-	<img src="${path1 }/img/eco/hamandookbang2.jfif" class="sm_img2">
-	<img src="${path1 }/img/eco/hamandookbang3.jpg" class="sm_img3">
+	<label for="img_btn1"><img src="${path1 }/img/his/haman_gwang.jpg"  class="sm_img1"></label>
+	<label for="img_btn2"><img src="${path1 }/img/his/haman_gwang2.jpg" class="sm_img2"></label>
+	<label for="img_btn3"><img src="${path1 }/img/his/haman_gwang3.jpg" class="sm_img3"></label>
 	</div>
 </section>
+
 <div class="content_blank">
 </div>
 
@@ -64,7 +74,10 @@ img {border:0;}
 
 용성송씨(龍城宋氏) 문중에서 젊은 사람들이 수학을 목적으로 건립한 정자
 
-함안군 칠북면 봉촌리 230번지 내 위치한 광심정(廣心亭)은 조선 선조 2년(1569) 영산군 길곡리에 칩거하고 있던 용성송씨(龍城宋氏) 문중에서 젊은 사람들이 수학을 목적으로 건립한 정자(亭子)로서 조선 현종 5년(1664)에 성리학자인 송지일(宋知逸)선생이 선비들과 더불어 학문을 연구하기 위해 자신의 호를 따라서 광심정으로 편액(扁額)하였으며, 낙동강변의 절벽 위에 자리잡고 있다. 임진왜란(1592) 때 파손되어 여러 번 고쳐 지었다.
+함안군 칠북면 봉촌리 230번지 내 위치한 광심정(廣心亭)은 조선 선조 2년(1569) 영산군 길곡리에 칩거하고 있던 용성송씨(龍城宋氏) 
+문중에서 젊은 사람들이 수학을 목적으로 건립한 정자(亭子)로서 조선 현종 5년(1664)에 성리학자인 송지일(宋知逸)선생이 
+선비들과 더불어 학문을 연구하기 위해 자신의 호를 따라서 광심정으로 편액(扁額)하였으며, 낙동강변의 절벽 위에 자리잡고 있다. 
+임진왜란(1592) 때 파손되어 여러 번 고쳐 지었다.
 
 건물은 앞면 · 옆면 2칸 규모이며 지붕은 옆면에서 볼 때 여덟 팔자 모양인 팔작지붕이다.
 앞쪽은 마루로 꾸몄고, 뒤쪽에는 방을 두었으며, 1995년 5월 2일 문화재자료 제217호로 지정되었다.

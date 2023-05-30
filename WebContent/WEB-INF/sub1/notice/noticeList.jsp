@@ -18,7 +18,21 @@ textarea {resize:none}
 table {  border-collapse: separate; border-spacing: 10px 10px;}
 tr {margin-left:20px}
 
+.pagelist {clear:both; width:560px;height:50px; margin:0 auto; background-color:green}
+.listboxc {cursor:pointer;width:50px;height:50px;border: 1px solid rgb(224, 224, 224); float:left;margin-right:20px;text-align:center;line-height:50px}
+.listbox {width:50px;height:50px;border: 1px solid rgb(224, 224, 224); float:left;margin-right:20px;text-align:center;line-height:50px}
 </style>
+<script type="text/javascript">
+  $(document).ready(function(){
+   alert(width);
+   var totalWidth = 0;
+   var set = $(".set")   
+   /* set.each(function(){
+    totalWidth = totalWidth + $(this).width();
+   })
+   $('.scroll').css('width', totalWidth)
+  });  */ 
+</script>
 </head>
 <body>
 <%@ include file="/header.jsp" %>
@@ -51,7 +65,37 @@ tr {margin-left:20px}
 		</tr>
 		</c:forEach>
 	</table>
+	
+	<div class="blank"></div>
 
+	<c:set var="listwidth" value="${(pvo.nowBlockLastPage-pvo.startPage+3)*70-20}"/>
+		<div class="pagelist" style="width: ${listwidth}px;height:100%">
+			
+			<c:if test="${pvo.priv!=' X ' }">
+			<div class="listboxc" onclick="location.href='${path1 }/GoNoticeList.do?nowPage=${pvo.startPage-1}'">
+			이전
+			</div>
+			</c:if>
+			<c:if test="${pvo.priv==' X ' }">
+			<div class="listbox">
+			이전
+			</div>
+			</c:if>
+		<c:forEach var="x" begin="${pvo.startPage}" end="${pvo.nowBlockLastPage}" step="1">
+		<div class="listboxc" onclick="location.href='${path1 }/GoNoticeList.do?nowPage=${x }'">${x }</div>
+		</c:forEach>
+			<c:if test="${pvo.next!=' X ' }">
+			<div class="listboxc" onclick="location.href='${path1 }/GoNoticeList.do?nowPage=${pvo.nowBlockLastPage+1}'" style="margin-right:0">
+			다음
+			</div>
+			</c:if>
+			<c:if test="${pvo.next==' X ' }">
+			<div class="listbox" style="margin-right:0">
+			다음
+			</div>
+			</c:if>
+	</div>
+	
 	
 	<div style="text-align:right">
 	<c:if test="${sid=='admin' }">

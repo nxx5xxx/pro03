@@ -8,15 +8,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 페이지</title>
+<title>입곡 문화공원</title>
 <style>
 img {border:0;}
 .main_wrap {width:1000px; margin:0 auto;}
 .blank {clear:left; height:50px;}
 .divide {height:35px ; background-color:lightgray;text-align:center;line-height:35px}
 
-.img_sec {width:600px;height:700px; background-color:rgb(88,173,64);margin:10px 200px;float:right}
-.img1 {width:570px; height:488px;margin:15px}
+.img_sec {width:600px;height:705px; background-color:rgb(88,173,64);margin:10px 200px;float:right}
+.img1 {display:inline-block;width:570px; height:488px;margin:15px ;}
+#img_btn1:checked ~ .img1 {background: url(${path1 }/img/eco/ipgok1.jpg) no-repeat;background-size:570px 488px;}
+#img_btn2:checked ~ .img1 {background: url(${path1 }/img/eco/ipgok2.jpg) no-repeat;background-size:570px 488px;}
+#img_btn3:checked ~ .img1 {background: url(${path1 }/img/eco/ipgok3.jpg) no-repeat;background-size:570px 488px;}
+.btn_hidden {display:none}
 .img23_wrap {width:570px;height :155px; margin:13.5px 15px;text-align:center }
 .sm_img1,.sm_img2,.sm_img3 {width:180px; height:155px}
 .sm_img1 {float:left}
@@ -46,14 +50,21 @@ img {border:0;}
 		<h2 class="is-size-2" style="color:rgb(88,173,64);font-weight:bold">${mapname }</h2>
 		<hr style="width:265px;margin:0;background-color:lightgray">
 	</div>
+	
 <section class="img_sec">
-	<div class="img1_wrap"><img src="${path1 }/img/eco/hamandookbang1.jfif" class="img1"></div>
+	<div class="img1_wrap">
+		<input type="radio" name="img_btn" id="img_btn1" checked class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn2" class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn3" class="btn_hidden">
+	<div class="img1"></div>
+	</div>
 	<div class="img23_wrap">
-	<img src="${path1 }/img/eco/hamandookbang1.jfif" class="sm_img1">
-	<img src="${path1 }/img/eco/hamandookbang2.jfif" class="sm_img2">
-	<img src="${path1 }/img/eco/hamandookbang3.jpg" class="sm_img3">
+	<label for="img_btn1"><img src="${path1 }/img/eco/ipgok1.jpg" class="sm_img1"></label>
+	<label for="img_btn2"><img src="${path1 }/img/eco/ipgok2.jpg" class="sm_img2"></label>
+	<label for="img_btn3"><img src="${path1 }/img/eco/ipgok3.jpg" class="sm_img3"></label>
 	</div>
 </section>
+
 <div class="content_blank">
 </div>
 
@@ -61,13 +72,17 @@ img {border:0;}
 	<article class="cont_art">
 	<div style="height:180px"></div>
 	<pre>
-함안군 산인면 입곡리 1089번지 일원에 소재한 입곡문화공원은 입곡군립공원 공설운동장 안 골짜기에 위치하고 있으며 60,250㎡의 면적에 연못, 산책로, 무늬화단, 유리온실, 미로원 등을 조성하여 함안군의 새로운 관광지로 발돋움하고 있다.
+함안군 산인면 입곡리 1089번지 일원에 소재한 입곡문화공원은 입곡군립공원 공설운동장 안 골짜기에 위치하고 있으며 
+60,250㎡의 면적에 연못, 산책로, 무늬화단, 유리온실, 미로원 등을 조성하여 함안군의 새로운 관광지로 발돋움하고 있다.
 
-화려함과 은은함이 조화를 이루는 드넓은 야생화 꽃밭과 낙엽교목과 상록교목이 교차하는 녹지, 철 따라 운치가 살아나는 연못, 산책로가 멋지게 펼쳐져 있으며,
+화려함과 은은함이 조화를 이루는 드넓은 야생화 꽃밭과 낙엽교목과 상록교목이 교차하는 녹지,
+ 철 따라 운치가 살아나는 연못, 산책로가 멋지게 펼쳐져 있으며,
 
-유리온실에는 먼나무, 녹나무, 굴거리나무, 하귤나무 등의 교목류와 소펄, 관음죽, 멀꿀, 중대 가리나무, 탐라산수국, 돈나무 등의 관목류 5와 지피식물인 애란, 모람 등이 심겨져 있어 아름다운 꽃들과 다양한 식물들을 구경할 수 있다.
+유리온실에는 먼나무, 녹나무, 굴거리나무, 하귤나무 등의 교목류와 소펄, 관음죽, 멀꿀, 중대 가리나무, 탐라산수국,
+ 돈나무 등의 관목류 5와 지피식물인 애란, 모람 등이 심겨져 있어 아름다운 꽃들과 다양한 식물들을 구경할 수 있다.
 
-야생화 꽃밭에는 원추리, 상사화, 기린초, 쑥부쟁이, 꽃창포, 털부처꽃, 수선화 등 아름다운 우리 꽃 17종류 3만 5000뿌리 심겨져 자연이 가진 아름다움을 마음껏 누리고 사진에 담을 수 있는 사진촬영의 명소가 될 전망이다.
+야생화 꽃밭에는 원추리, 상사화, 기린초, 쑥부쟁이, 꽃창포, 털부처꽃, 수선화 등 아름다운 우리 꽃 17종류 
+3만 5000뿌리 심겨져 자연이 가진 아름다움을 마음껏 누리고 사진에 담을 수 있는 사진촬영의 명소가 될 전망이다.
 
 
 	<span class="cont_adr">

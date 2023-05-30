@@ -17,7 +17,7 @@
 </style>
 </head>
 <body>
-<%@ include file="/header.jsp" %>
+<%@ include file="../../../header.jsp" %>
 <div class="content" style="padding-top:30px; margin-top:30px; border-top:3px solid #333; min-height:500px; ">
 	<div class="container-fluid">
 	<h2 class="title" style="text-align: center;">함안 맛집 등록</h2>
@@ -39,13 +39,13 @@
 					<th><label class="label" for="post_btn">주소</label></th>
 					<td>
 					<input type="text" name="postcode" id="postcode" placeholder="우편번호" class="input"  readonly>
-					<button id="post_btn" onclick="findAddr()" class="button is-info is-rounded">우편번호 검색</button>
+					<button type="button" id="post_btn" onclick="findAddr()" class="button is-info is-rounded">우편번호 검색</button>
 					<input type="text" name="address1" id="address1" placeholder="기본 주소" class="input" required  readonly /><br>
 					<input type="text" name="address2" id="address2" placeholder="상세 주소 입력" class="input" required  /><br>
 					</td>
 				</tr>
 				<tr>
-					<th>첨부파일</th>
+					<th><label class="label" for="file1">첨부파일</label></th>
 					<td><input type="file" name="file1" id="file1" required></td>
 				</tr>
 				<tr>
@@ -53,7 +53,8 @@
 					&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
        				<input type="submit" value="등록하기" class="button is-info"/>
 					&nbsp; &nbsp; &nbsp;
-       				<input type="reset" value="취소" class="button is-light"/>
+					<a href="javascript:history.go(-1)" class="button is-light">취소</a>
+					<!-- <input type="reset" value="초기화" class="button is-ghost"/> -->
 					</td>
 				</tr>
 			</tbody>
@@ -81,6 +82,6 @@
 	</article>		
 	</div>
 </div>
-<%@ include file="/footer.jsp" %>
+<%@ include file="../../../footer.jsp" %>
 </body>
 </html>

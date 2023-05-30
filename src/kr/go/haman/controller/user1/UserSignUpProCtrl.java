@@ -43,7 +43,7 @@ public class UserSignUpProCtrl extends HttpServlet {
 		user.setId(request.getParameter("id"));
 		user.setName(request.getParameter("name"));
 		user.setPw(passwd);
-		user.setAddr(request.getParameter("address1")+" "+request.getParameter("address2"));
+		user.setAddr("("+request.getParameter("postcode")+") "+request.getParameter("address1")+", "+request.getParameter("address2"));
 		user.setTel(request.getParameter("tel"));
 		user.setEmail(request.getParameter("email"));
 		

@@ -8,15 +8,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 페이지</title>
+<title>원효암 칠성각</title>
 <style>
 img {border:0;}
 .main_wrap {width:1000px; margin:0 auto;}
 .blank {clear:left; height:50px;}
 .divide {height:35px ; background-color:lightgray;text-align:center;line-height:35px}
 
-.img_sec {width:600px;height:700px; background-color:rgb(241,92,48);margin:10px 200px;float:right}
-.img1 {width:570px; height:488px;margin:15px}
+.img_sec {width:600px;height:705px; background-color:rgb(241,92,48);margin:10px 200px;float:right}
+.img1 {display:inline-block;width:570px; height:488px;margin:15px ;}
+#img_btn1:checked ~ .img1 {background: url(${path1 }/img/his/wonhyo1.jpg) no-repeat;background-size:570px 488px;}
+#img_btn2:checked ~ .img1 {background: url(${path1 }/img/his/wonhyo2.jfif) no-repeat;background-size:570px 488px;}
+#img_btn3:checked ~ .img1 {background: url(${path1 }/img/his/wonhyo3.jfif) no-repeat;background-size:570px 488px;}
+.btn_hidden {display:none}
 .img23_wrap {width:570px;height :155px; margin:13.5px 15px;text-align:center }
 .sm_img1,.sm_img2,.sm_img3 {width:180px; height:155px}
 .sm_img1 {float:left}
@@ -47,13 +51,18 @@ img {border:0;}
 		<hr style="width:265px;margin:0;background-color:lightgray">
 	</div>
 <section class="img_sec">
-	<div class="img1_wrap"><img src="${path1 }/img/eco/hamandookbang1.jfif" class="img1"></div>
-	<div class="img23_wrap">
-	<img src="${path1 }/img/eco/hamandookbang1.jfif" class="sm_img1">
-	<img src="${path1 }/img/eco/hamandookbang2.jfif" class="sm_img2">
-	<img src="${path1 }/img/eco/hamandookbang3.jpg" class="sm_img3">
+	<div class="img1_wrap">
+		<input type="radio" name="img_btn" id="img_btn1" checked class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn2" class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn3" class="btn_hidden">
+	<div class="img1"></div>
 	</div>
-</section>
+	<div class="img23_wrap">
+	<label for="img_btn1"><img src="${path1 }/img/his/wonhyo1.jpg" class="sm_img1"></label>
+	<label for="img_btn2"><img src="${path1 }/img/his/wonhyo2.jfif" class="sm_img2"></label>
+	<label for="img_btn3"><img src="${path1 }/img/his/wonhyo3.jfif" class="sm_img3"></label>
+	</div>
+</section>	
 <div class="content_blank">
 </div>
 
@@ -64,9 +73,12 @@ img {border:0;}
 
 원효암 칠성각은 원효대사와 의상대사가 수도한 곳
 
-함안군 군북면 사촌4길 863 내 위치한 원효암 칠성각(元曉庵 七星閣)은 원효대사와 의상대사가 수도한 곳이라 전하나 창건연대와 연혁은 알 수 없고, 절의 이름을 원효암이라 하고 의상대(儀湘臺)가 있는 것으로 보아 의상대사가 창건한 것으로 추정되나 확실하지는 않다.
+함안군 군북면 사촌4길 863 내 위치한 원효암 칠성각(元曉庵 七星閣)은 원효대사와 의상대사가 수도한 곳이라 
+전하나 창건연대와 연혁은 알 수 없고, 절의 이름을 원효암이라 하고 의상대(儀湘臺)가 있는 것으로 보아 
+의상대사가 창건한 것으로 추정되나 확실하지는 않다.
 
-원효암은 6 · 25때 소실되고 의상대는 소실되지 않았으나, 창건연대는 미상이며, 사기(寺記)에 의하면 1370년 세운 것으로 기록되어 있다. 1983년 7월 20일 문화재자료 제15호로 지정되어 보호되고 있다.
+원효암은 6 · 25때 소실되고 의상대는 소실되지 않았으나, 창건연대는 미상이며, 
+사기(寺記)에 의하면 1370년 세운 것으로 기록되어 있다. 1983년 7월 20일 문화재자료 제15호로 지정되어 보호되고 있다.
 	<span class="cont_adr">
 	주소 : ${mapaddr }
 관리처  : 문화유산관광담당관 문화유산담당

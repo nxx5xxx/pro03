@@ -8,15 +8,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 페이지</title>
+<title>연꽃테마파크</title>
 <style>
 img {border:0;}
 .main_wrap {width:1000px; margin:0 auto;}
 .blank {clear:left; height:50px;}
 .divide {height:35px ; background-color:lightgray;text-align:center;line-height:35px}
 
-.img_sec {width:600px;height:700px; background-color:rgb(88,173,64);margin:10px 200px;float:right}
-.img1 {width:570px; height:488px;margin:15px}
+.img_sec {width:600px;height:705px; background-color:rgb(88,173,64);margin:10px 200px;float:right}
+.img1 {display:inline-block;width:570px; height:488px;margin:15px ;}
+#img_btn1:checked ~ .img1 {background: url(${path1 }/img/eco/temapark1.jpg) no-repeat;background-size:570px 488px;}
+#img_btn2:checked ~ .img1 {background: url(${path1 }/img/eco/temapark2.jpg) no-repeat;background-size:570px 488px;}
+#img_btn3:checked ~ .img1 {background: url(${path1 }/img/eco/temapark3.jpg) no-repeat;background-size:570px 488px;}
+.btn_hidden {display:none}
+
 .img23_wrap {width:570px;height :155px; margin:13.5px 15px;text-align:center }
 .sm_img1,.sm_img2,.sm_img3 {width:180px; height:155px}
 .sm_img1 {float:left}
@@ -47,11 +52,16 @@ img {border:0;}
 		<hr style="width:265px;margin:0;background-color:lightgray">
 	</div>
 <section class="img_sec">
-	<div class="img1_wrap"><img src="${path1 }/img/eco/hamandookbang1.jfif" class="img1"></div>
+	<div class="img1_wrap">
+		<input type="radio" name="img_btn" id="img_btn1" checked class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn2" class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn3" class="btn_hidden">
+	<div class="img1"></div>
+	</div>
 	<div class="img23_wrap">
-	<img src="${path1 }/img/eco/hamandookbang1.jfif" class="sm_img1">
-	<img src="${path1 }/img/eco/hamandookbang2.jfif" class="sm_img2">
-	<img src="${path1 }/img/eco/hamandookbang3.jpg" class="sm_img3">
+	<label for="img_btn1"><img src="${path1 }/img/eco/temapark1.jpg" class="sm_img1"></label>
+	<label for="img_btn2"><img src="${path1 }/img/eco/temapark2.jpg" class="sm_img2"></label>
+	<label for="img_btn3"><img src="${path1 }/img/eco/temapark3.jpg" class="sm_img3"></label>
 	</div>
 </section>
 <div class="content_blank">
@@ -70,16 +80,17 @@ img {border:0;}
 - 관리처 : 함안군 공원관리사업소
 - 전화번호 : 055-580-3431
 
-◆ 연꽃식재 현황
-면적	화종별 면적(ha)
-계	법수홍련	아라홍련	백련	수련	가시연	기타연
-4.0ha	4.0(100%)	3(75%)	0.1(2.5%)	0.6(15%)	0.15(3.8%)	0.1(2.5%)	0.05(1.2%)
-
-가야지구의 천연늪지를 자연친화적인 테마공원으로 조성하여 군민과 우리 군을 찾는 관광객에 아라가야의 특색 있는 휴식공간을 제공함으로서 사계절 관광객 유치와 우리군민의 삶의 질을 향상 시킬 수 있는 친환경적인 테마공원을 조성하고자 2013년에 개장하게 되었다.
-함안 연꽃테마파크는 특히 역사적 의의를 가지고 있는 아라연꽃을 특징화시켜 아라홍련 외 3종의 연꽃을 주제로 조성하였으며, 가시연꽃의 경우는 조성완료 후 법수홍련 밭에서 자연 발아하여 군에서 종자를 채취 후 0.1ha 면적에 증식시켰다. 또한 2019년에는 기존 수련 공간 일부에 약50여종의 기타연꽃을 기증 받아 식재 하였다.
+가야지구의 천연늪지를 자연친화적인 테마공원으로 조성하여 군민과 우리 군을 찾는 관광객에 아라가야의 특색 있는 
+휴식공간을 제공함으로서 사계절 관광객 유치와 우리군민의 삶의 질을 향상 시킬 수 있는 친환경적인 테마공원을 
+조성하고자 2013년에 개장하게 되었다. 함안 연꽃테마파크는 특히 역사적 의의를 가지고 있는 아라연꽃을 특징화시켜 
+아라홍련 외 3종의 연꽃을 주제로 조성하였으며, 가시연꽃의 경우는 조성완료 후 법수홍련 밭에서 자연 발아하여 
+군에서 종자를 채취 후 0.1ha 면적에 증식시켰다. 또한 2019년에는 기존 수련 공간 일부에 약50여종의 
+기타연꽃을 기증 받아 식재 하였다.
 
 * 아라연꽃이란?
-아라연꽃은 2009년 5월 성산산성에서 발굴된 씨앗으로 발아시킨 연꽃으로 성분결과 약 700년전 고려시대 연꽃 씨인 것으로 확인되었다. 이곳 함안지역이 본래 옛 아라가야가 있던 곳이기 때문에 아라연꽃이라 명명하였으며, 고려시대 불교 탱화에서 볼 수 있는 연꽃의 형태와 색깔을 간직한 채 2009년 7월 7일에 700년 만에 꽃을 다시 피웠다.
+아라연꽃은 2009년 5월 성산산성에서 발굴된 씨앗으로 발아시킨 연꽃으로 성분결과 약 700년전 고려시대 연꽃 씨인 것으로 확인되었다. 
+이곳 함안지역이 본래 옛 아라가야가 있던 곳이기 때문에 아라연꽃이라 명명하였으며, 
+고려시대 불교 탱화에서 볼 수 있는 연꽃의 형태와 색깔을 간직한 채 2009년 7월 7일에 700년 만에 꽃을 다시 피웠다.
 
 
 	<span class="cont_adr">

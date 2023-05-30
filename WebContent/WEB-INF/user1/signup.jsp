@@ -9,7 +9,7 @@
 <title>회원가입</title>
 <style>
 .title { padding-top:36px; padding-bottom:10px; }
-#postcode { width: 480px; margin-right: 10px;}
+#postcode { width: 250px; margin-right: 10px;}
 #id { width: 500px; margin-right: 10px;}
 .agree_fr { width: 900px; padding: 24px; margin: 10px auto; }
 </style>
@@ -24,7 +24,7 @@
 		<table class="table">
 			<tbody>
 				<tr>
-					<th id="idth">아이디</th>
+					<th id="idth"><label class="label" for="id">아이디</label></th>
 					<td>
 						<div class="form-row">
 							<input type="text" name="id" id="id" placeholder="영문소문자 및 숫자 조합" 
@@ -43,11 +43,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>이름<p id="subname">(개인,기업,단체)</p></th>
-					<td><input type="text" name="name" id="name" placeholder="이름 또는 개인, 기업, 단체명 입력" class="input" required /></td>
-				</tr>
-				<tr>
-					<th>비밀번호</th>
+					<th><label class="label" for="pw">비밀번호</label></th>
 					<td>
 						<input type="password" name="pw" id="pw" placeholder="비밀번호 입력" class="input"
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" maxlength="16" required />
@@ -55,32 +51,38 @@
 					</td>
 				</tr>
 				<tr>
-					<th>비밀번호 확인</th>
+					<th><label class="label" for="pw2">비밀번호 확인</label></th>
 					<td><input type="password" name="pw2" id="pw2" placeholder="비밀번호  확인 입력" class="input" 
 					pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" maxlength="16" required /></td>
 				</tr>
 				<tr>
-					<th>이메일</th>
+					<th><label class="label" for="name">이름<p>(개인,기업,단체)</p></label></th>
+					<td><input type="text" name="name" id="name" placeholder="이름 또는 개인, 기업, 단체명 입력" class="input" required /></td>
+				</tr>
+				<tr>
+					<th><label class="label" for="email">이메일</label></th>
 					<td><input type="email" name="email" id="email" placeholder="이메일 입력" class="input" required></td>
 				</tr>
 				<tr>
-					<th>연락처</th>
+					<th><label class="label" for="tel">연락처</label></th>
 					<td><input type="tel" name="tel" id="tel" maxlength="14" placeholder="ex) 010-1234-5678" class="input" required></td>
 				</tr>
 				<tr>
-					<th>주소</th>
-					<td><input type="text" name="address1" id="address1" placeholder="기본 주소 입력" class="input" required  readonly /><br>
-					<input type="text" name="address2" id="address2" placeholder="상세 주소 입력" class="input" required  /><br>
+					<th><label class="label" for="post_btn">주소</label></th>
+					<td>
 					<input type="text" name="postcode" id="postcode" placeholder="우편번호" class="input"  readonly>
-					<button id="post_btn" onclick="findAddr()" class="button is-info is-rounded">우편번호 검색</button>
+					<button type="button" id="post_btn" onclick="findAddr()" class="button is-info is-rounded">우편번호 검색</button>
+					<input type="text" name="address1" id="address1" placeholder="기본 주소" class="input" required  readonly /><br>
+					<input type="text" name="address2" id="address2" placeholder="상세 주소 입력" class="input" required  /><br>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
-						<input type="submit" value="회원가입" class="button is-success"/>
+						<input type="submit" value="회원가입" class="button is-info"/>
 						&nbsp; &nbsp; &nbsp;
-						<input type="reset" value="취소" class="button is-light"/>
+						<a href="javascript:history.go(-1)" class="button is-light">취소</a>
+						<!-- <input type="reset" value="초기화" class="button is-ghost"/> -->
 					</td>
 				</tr>
 			</tbody>

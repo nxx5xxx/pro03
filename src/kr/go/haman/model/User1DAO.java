@@ -189,11 +189,11 @@ public class User1DAO {
 		return cnt;
 	}
 	
-	//나 불러오기 _ 암호제외 
+	//나 불러오기 _ 암호제외
 	public User1 getUserFromId(User1 user){
 		try {
-			conn = MySQL8.getConnection();
-			pstmt = conn.prepareStatement(MySQL8.USER1_SELECT_FROM_ID);
+			conn = MySQL.getConnection();
+			pstmt = conn.prepareStatement(MySQL.USER1_SELECT_FROM_ID);
 			pstmt.setString(1, user.getId());
 			rs = pstmt.executeQuery();
 			if(rs.next()){
@@ -213,5 +213,4 @@ public class User1DAO {
 		}
 		return user;
 	}
-	
 }

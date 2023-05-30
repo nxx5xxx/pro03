@@ -13,12 +13,12 @@
 COMMIT;
 
 -- 함안 테이블
- DROP TABLE member;
- DROP TABLE notice;
-DROP TABLE photog;
-DROP TABLE food;
-DROP TABLE complain;
-DROP TABLE accom;
+--  DROP TABLE member;
+--  DROP TABLE notice;
+-- DROP TABLE photog;
+-- DROP TABLE food;
+-- DROP TABLE complain;
+-- DROP TABLE accom;
 
 -- 멤버 테이블
 create table USER1(ID	VARCHAR(20) PRIMARY KEY,  	
@@ -198,4 +198,152 @@ SELECT * FROM photog ORDER BY pno DESC LIMIT 1;
 SELECT * FROM user1;
 
 show variables like 'lower_case_table_names';
+
+<<<<<<< HEAD
+=======
+SELECT * FROM complain where id='kim' order by cno desc LIMIT 0,10;
+
+select * from photog;
+select * from notice;
+-- update notice set views=views+1 where nno='20001';
+
+SELECT * FROM photog order by pno desc LIMIT 0,4;
+select count(*) as cnt from photog;
+
+select count(*) from photog; 
+select * from accom;
+select * from food;
+
+
+-- 공지사항 더미 데이터2
+desc notice;
+insert into	notice values('20013','더미제목13','더미본문입니다3','admin','관리자','','','',default,default);
+insert into	notice values('20014','더미제목14','더미본문입니다4','admin','관리자','','','',default,default);
+insert into	notice values('20015','더미제목15','더미본문입니다5','admin','관리자','','','',default,default);
+insert into	notice values('20016','더미제목16','더미본문입니다6','admin','관리자','','','',default,default);
+insert into	notice values('20017','더미제목17','더미본문입니다7','admin','관리자','','','',default,default);
+insert into	notice values('20018','더미제목18','더미본문입니다8','admin','관리자','','','',default,default);
+insert into	notice values('20019','더미제목19','더미본문입니다9','admin','관리자','','','',default,default);
+insert into	notice values('20020','더미제목20','더미본문입니다10','admin','관리자','','','',default,default);
+insert into	notice values('20021','더미제목21','더미본문입니다1','admin','관리자','','','',default,default);
+insert into	notice values('20022','더미제목22','더미본문입니다2','admin','관리자','','','',default,default);
+insert into	notice values('20023','더미제목23','더미본문입니다3','admin','관리자','','','',default,default);
+insert into	notice values('20024','더미제목24','더미본문입니다4','admin','관리자','','','',default,default);
+insert into	notice values('20025','더미제목25','더미본문입니다5','admin','관리자','','','',default,default);
+insert into	notice values('20026','더미제목26','더미본문입니다6','admin','관리자','','','',default,default);
+insert into	notice values('20027','더미제목27','더미본문입니다7','admin','관리자','','','',default,default);
+insert into	notice values('20028','더미제목28','더미본문입니다8','admin','관리자','','','',default,default);
+insert into	notice values('20029','더미제목29','더미본문입니다9','admin','관리자','','','',default,default);
+insert into	notice values('20030','더미제목30','더미본문입니다10','admin','관리자','','','',default,default);
+insert into	notice values('20031','더미제목31','더미본문입니다1','admin','관리자','','','',default,default);
+insert into	notice values('20032','더미제목32','더미본문입니다2','admin','관리자','','','',default,default);
+insert into	notice values('20033','더미제목33','더미본문입니다3','admin','관리자','','','',default,default);
+insert into	notice values('20034','더미제목34','더미본문입니다4','admin','관리자','','','',default,default);
+insert into	notice values('20035','더미제목35','더미본문입니다5','admin','관리자','','','',default,default);
+insert into	notice values('20036','더미제목36','더미본문입니다6','admin','관리자','','','',default,default);
+insert into	notice values('20037','더미제목37','더미본문입니다7','admin','관리자','','','',default,default);
+insert into	notice values('20038','더미제목38','더미본문입니다8','admin','관리자','','','',default,default);
+insert into	notice values('20039','더미제목39','더미본문입니다9','admin','관리자','','','',default,default);
+insert into	notice values('20040','더미제목40','더미본문입니다10','admin','관리자','','','',default,default);
+insert into	notice values('20041','더미제목41','더미본문입니다1','admin','관리자','','','',default,default);
+insert into	notice values('20042','더미제목42','더미본문입니다2','admin','관리자','','','',default,default);
+insert into	notice values('20043','더미제목43','더미본문입니다3','admin','관리자','','','',default,default);
+insert into	notice values('20044','더미제목44','더미본문입니다4','admin','관리자','','','',default,default);
+insert into	notice values('20045','더미제목45','더미본문입니다5','admin','관리자','','','',default,default);
+insert into	notice values('20046','더미제목46','더미본문입니다6','admin','관리자','','','',default,default);
+insert into	notice values('20047','더미제목47','더미본문입니다7','admin','관리자','','','',default,default);
+insert into	notice values('20048','더미제목48','더미본문입니다8','admin','관리자','','','',default,default);
+insert into	notice values('20049','더미제목49','더미본문입니다9','admin','관리자','','','',default,default);
+insert into	notice values('20050','더미제목50','더미본문입니다10','admin','관리자','','','',default,default);
+insert into	notice values('20051','더미제목51','더미본문입니다1','admin','관리자','','','',default,default);
+insert into	notice values('20052','더미제목52','더미본문입니다2','admin','관리자','','','',default,default);
+insert into	notice values('20053','더미제목53','더미본문입니다3','admin','관리자','','','',default,default);
+insert into	notice values('20054','더미제목54','더미본문입니다4','admin','관리자','','','',default,default);
+insert into	notice values('20055','더미제목55','더미본문입니다5','admin','관리자','','','',default,default);
+insert into	notice values('20056','더미제목56','더미본문입니다6','admin','관리자','','','',default,default);
+insert into	notice values('20057','더미제목57','더미본문입니다7','admin','관리자','','','',default,default);
+insert into	notice values('20058','더미제목58','더미본문입니다8','admin','관리자','','','',default,default);
+insert into	notice values('20059','더미제목59','더미본문입니다9','admin','관리자','','','',default,default);
+
+insert into	notice values('20060','더미제목60','더미본문입니다10','admin','관리자','','','',default,default);
+insert into	notice values('20061','더미제목61','더미본문입니다1','admin','관리자','','','',default,default);
+insert into	notice values('20062','더미제목62','더미본문입니다2','admin','관리자','','','',default,default);
+insert into	notice values('20063','더미제목63','더미본문입니다3','admin','관리자','','','',default,default);
+insert into	notice values('20064','더미제목64','더미본문입니다4','admin','관리자','','','',default,default);
+insert into	notice values('20065','더미제목65','더미본문입니다5','admin','관리자','','','',default,default);
+insert into	notice values('20066','더미제목66','더미본문입니다6','admin','관리자','','','',default,default);
+insert into	notice values('20067','더미제목67','더미본문입니다7','admin','관리자','','','',default,default);
+insert into	notice values('20068','더미제목68','더미본문입니다8','admin','관리자','','','',default,default);
+insert into	notice values('20069','더미제목69','더미본문입니다9','admin','관리자','','','',default,default);
+insert into	notice values('20070','더미제목70','더미본문입니다10','admin','관리자','','','',default,default);
+insert into	notice values('20071','더미제목71','더미본문입니다1','admin','관리자','','','',default,default);
+insert into	notice values('20072','더미제목72','더미본문입니다2','admin','관리자','','','',default,default);
+insert into	notice values('20073','더미제목73','더미본문입니다3','admin','관리자','','','',default,default);
+insert into	notice values('20074','더미제목74','더미본문입니다4','admin','관리자','','','',default,default);
+insert into	notice values('20075','더미제목75','더미본문입니다5','admin','관리자','','','',default,default);
+insert into	notice values('20076','더미제목76','더미본문입니다6','admin','관리자','','','',default,default);
+insert into	notice values('20077','더미제목77','더미본문입니다7','admin','관리자','','','',default,default);
+insert into	notice values('20078','더미제목78','더미본문입니다8','admin','관리자','','','',default,default);
+insert into	notice values('20079','더미제목79','더미본문입니다9','admin','관리자','','','',default,default);
+insert into	notice values('20080','더미제목80','더미본문입니다10','admin','관리자','','','',default,default);
+insert into	notice values('20081','더미제목81','더미본문입니다1','admin','관리자','','','',default,default);
+insert into	notice values('20082','더미제목82','더미본문입니다2','admin','관리자','','','',default,default);
+insert into	notice values('20083','더미제목83','더미본문입니다3','admin','관리자','','','',default,default);
+insert into	notice values('20084','더미제목84','더미본문입니다4','admin','관리자','','','',default,default);
+insert into	notice values('20085','더미제목85','더미본문입니다5','admin','관리자','','','',default,default);
+insert into	notice values('20086','더미제목86','더미본문입니다6','admin','관리자','','','',default,default);
+insert into	notice values('20087','더미제목87','더미본문입니다7','admin','관리자','','','',default,default);
+insert into	notice values('20088','더미제목88','더미본문입니다8','admin','관리자','','','',default,default);
+insert into	notice values('20089','더미제목89','더미본문입니다9','admin','관리자','','','',default,default);
+insert into	notice values('20090','더미제목90','더미본문입니다10','admin','관리자','','','',default,default);
+insert into	notice values('20091','더미제목91','더미본문입니다1','admin','관리자','','','',default,default);
+insert into	notice values('20092','더미제목92','더미본문입니다2','admin','관리자','','','',default,default);
+insert into	notice values('20093','더미제목93','더미본문입니다3','admin','관리자','','','',default,default);
+insert into	notice values('20094','더미제목94','더미본문입니다4','admin','관리자','','','',default,default);
+insert into	notice values('20095','더미제목95','더미본문입니다5','admin','관리자','','','',default,default);
+insert into	notice values('20096','더미제목96','더미본문입니다6','admin','관리자','','','',default,default);
+insert into	notice values('20097','더미제목97','더미본문입니다7','admin','관리자','','','',default,default);
+insert into	notice values('20098','더미제목98','더미본문입니다8','admin','관리자','','','',default,default);
+insert into	notice values('20099','더미제목99','더미본문입니다9','admin','관리자','','','',default,default);
+insert into	notice values('20100','더미제목100','더미본문입니다10','admin','관리자','','','',default,default);
+insert into	notice values('20101','더미제목101','더미본문입니다1','admin','관리자','','','',default,default);
+insert into	notice values('20102','더미제목102','더미본문입니다2','admin','관리자','','','',default,default);
+insert into	notice values('20103','더미제목103','더미본문입니다3','admin','관리자','','','',default,default);
+insert into	notice values('20104','더미제목104','더미본문입니다4','admin','관리자','','','',default,default);
+insert into	notice values('20105','더미제목105','더미본문입니다5','admin','관리자','','','',default,default);
+insert into	notice values('20106','더미제목106','더미본문입니다6','admin','관리자','','','',default,default);
+insert into	notice values('20107','더미제목107','더미본문입니다7','admin','관리자','','','',default,default);
+insert into	notice values('20108','더미제목108','더미본문입니다8','admin','관리자','','','',default,default);
+insert into	notice values('20109','더미제목109','더미본문입니다9','admin','관리자','','','',default,default);
+
+
+
+
+
+
+-- delete from notice where nno>='20013';
+
+use haman;
+show tables;
+
+-- 리뷰테이블 리뷰 고유번호, 리뷰 참조번호 , 아이디(한명이 악의적으로 평점을 여러개 줄 수 없도록), 포인트 리뷰점수 , 리뷰 내용 (요구할 시)
+create table review(rno varchar(5) primary key,wno varchar(5) not null, 
+	id varchar(20), point float not null default 5 , content varchar(1000),
+    FOREIGN KEY(ID) REFERENCES USER1(ID));
+
+-- 7만번대    
+select * from review;
+
+select * from review where id='kim' and wno='60009';
+
+-- accom에 포인트 컬럼 추가
+
+-- alter table accom add point float default 0;
+select * from accom;
+select * from food;
+
+update accom set point=5,views=1 where ano="60009";
+
+SELECT * FROM review ORDER BY rno DESC LIMIT 1;
+
 

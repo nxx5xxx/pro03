@@ -39,7 +39,8 @@
 			&nbsp; &nbsp; &nbsp; &nbsp;
 			<input type="reset" value="취소" class="button is-light"/>
 			&nbsp; &nbsp; &nbsp; &nbsp;
-			<%-- <a href="${path1 }/UserAgree.do" class="button is-primary">회원가입</a>	 --%>
+			<%-- <a href="${path1 }/UserAgree.do" class="button is-primary">회원가입</a>	 
+				 <a href="javascript:history.go(-1)" class="button is-light">취소</a> --%>
 			</div>	
 		</form>
 		</article>		

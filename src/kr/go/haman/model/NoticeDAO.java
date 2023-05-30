@@ -7,7 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
+
 import kr.go.haman.dto.Notice;
+import kr.go.haman.dto.Photog;
+import kr.go.haman.vo.PageVO;
 
 
 public class NoticeDAO {
@@ -15,6 +18,66 @@ public class NoticeDAO {
 	private PreparedStatement pstmt =null;
 	private ResultSet rs =null;
 	
+	public ArrayList<Notice> getSelectAllForPage(PageVO pvo){
+		ArrayList<Notice> noticeList = new ArrayList<>();
+		try{
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.NOTICE_PAGE);
+			//System.out.println(pvo.getNowRecord());
+			pstmt.setInt(1, pvo.getNowRecord()-1);
+			pstmt.setInt(2, pvo.getViewRecord());
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				Notice notice = new Notice();
+				notice.setNno(rs.getString("nno"));
+				notice.setTitle(rs.getString("title"));
+				notice.setContent(rs.getString("content"));
+				notice.setId(rs.getString("id"));
+				notice.setName(rs.getString("name"));
+				notice.setFile1(rs.getString("file1"));
+				notice.setFile2(rs.getString("file2"));
+				notice.setFile3(rs.getString("file3"));
+				notice.setRegdate(rs.getString("regdate"));
+				notice.setViews(rs.getInt("views"));
+				noticeList.add(notice);
+			}
+			
+			pvo = getPageNum(pvo);
+			
+		} catch(ClassNotFoundException e) {
+			System.out.println("오라클JDBC 파일이 잘못되었습니다");
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 잘못되었습니다");
+		} catch(Exception e){
+			System.out.println("식별할수 없는 오류가 발생했습니다.");
+		}
+		MySQL8.close(rs, pstmt, conn);
+		return noticeList;
+	}
+	
+	public PageVO getPageNum(PageVO pvo){
+		try {
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.NOTICE_PAGE_COUNT);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				pvo.setAllRecord(rs.getInt(1));
+			}
+			
+			
+			
+			
+		} catch(ClassNotFoundException e) {
+			System.out.println("오라클JDBC 파일이 잘못되었습니다");
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 잘못되었습니다");
+		} catch(Exception e){
+			System.out.println("식별할수 없는 오류가 발생했습니다.");
+		}
+		MySQL8.close(rs, pstmt, conn);
+		return pvo;
+	}
+
 	public ArrayList<Notice> getSelectAll(){
 		ArrayList<Notice> noticeList = new ArrayList<>();
 		try{

@@ -8,15 +8,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 페이지</title>
+<title>입곡군립공원</title>
 <style>
 img {border:0;}
 .main_wrap {width:1000px; margin:0 auto;}
 .blank {clear:left; height:50px;}
 .divide {height:35px ; background-color:lightgray;text-align:center;line-height:35px}
 
-.img_sec {width:600px;height:700px; background-color:rgb(88,173,64);margin:10px 200px;float:right}
-.img1 {width:570px; height:488px;margin:15px}
+.img_sec {width:600px;height:705px; background-color:rgb(88,173,64);margin:10px 200px;float:right}
+.img1 {display:inline-block;width:570px; height:488px;margin:15px ;}
+#img_btn1:checked ~ .img1 {background: url(${path1 }/img/eco/goonlip1.jpg) no-repeat;background-size:570px 488px;}
+#img_btn2:checked ~ .img1 {background: url(${path1 }/img/eco/goonlip2.jfif) no-repeat;background-size:570px 488px;}
+#img_btn3:checked ~ .img1 {background: url(${path1 }/img/eco/goonlip3.jfif) no-repeat;background-size:570px 488px;}
+.btn_hidden {display:none}
+
 .img23_wrap {width:570px;height :155px; margin:13.5px 15px;text-align:center }
 .sm_img1,.sm_img2,.sm_img3 {width:180px; height:155px}
 .sm_img1 {float:left}
@@ -39,19 +44,25 @@ img {border:0;}
 	<!-- value에 관광지이름 넣으면 알아서 적용돼요 -->
 	<c:set var="mapname" value="입곡군립공원" />
 	<!-- 이곳에 지도주소넣기 -->	
-	<c:set var="mapaddr" value="경남 함안군 산인면 입곡리 1181-1" />
+	<c:set var="mapaddr" value="경남 함안군 산인면 입곡리 1180-1" />
 	<input type="hidden" id="hamAddr" value="${mapaddr }">
 	
 	
 		<h2 class="is-size-2" style="color:rgb(88,173,64);font-weight:bold">${mapname }</h2>
 		<hr style="width:265px;margin:0;background-color:lightgray">
 	</div>
+	
 <section class="img_sec">
-	<div class="img1_wrap"><img src="${path1 }/img/eco/hamandookbang1.jfif" class="img1"></div>
+	<div class="img1_wrap">
+		<input type="radio" name="img_btn" id="img_btn1" checked class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn2" class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn3" class="btn_hidden">
+	<div class="img1"></div>
+	</div>
 	<div class="img23_wrap">
-	<img src="${path1 }/img/eco/hamandookbang1.jfif" class="sm_img1">
-	<img src="${path1 }/img/eco/hamandookbang2.jfif" class="sm_img2">
-	<img src="${path1 }/img/eco/hamandookbang3.jpg" class="sm_img3">
+	<label for="img_btn1"><img src="${path1 }/img/eco/goonlip1.jpg"  class="sm_img1"></label>
+	<label for="img_btn2"><img src="${path1 }/img/eco/goonlip2.jfif" class="sm_img2"></label>
+	<label for="img_btn3"><img src="${path1 }/img/eco/goonlip3.jfif" class="sm_img3"></label>
 	</div>
 </section>
 <div class="content_blank">
@@ -61,15 +72,22 @@ img {border:0;}
 	<article class="cont_art">
 	<div style="height:180px"></div>
 	<pre>
-함안군 산인면에는 뱀이 기어가듯, 구불구불 흐르는 입곡저수지가 있다. 저수지 상류에는 자연생태 그대로 보존된 '입곡군립공원'이 형성돼 있어, 군민과 시민들에게 쉼터를 제공하고 있다.
+함안군 산인면에는 뱀이 기어가듯, 구불구불 흐르는 입곡저수지가 있다. 저수지 상류에는 자연생태 그대로 보존된 
+'입곡군립공원'이 형성돼 있어, 군민과 시민들에게 쉼터를 제공하고 있다.
 
-일제시대에 농업용수로 사용하기 위해 협곡을 가로막은 입곡저수지는 저수지 양 끝이 보이지 않을 만큼 제법 큰 규모를 자랑한다. 저수지를 중심으로 왼편에는 깎아지른 절벽에 우거진 송림이, 오른편으로는 완만한 경사지에 활엽수림과 침엽수림이 멋진 조화를 이룬다.
+일제시대에 농업용수로 사용하기 위해 협곡을 가로막은 입곡저수지는 저수지 양 끝이 보이지 않을 만큼 제법 큰 규모를 자랑한다. 
+저수지를 중심으로 왼편에는 깎아지른 절벽에 우거진 송림이, 오른편으로는 완만한 경사지에 활엽수림과 침엽수림이 멋진 조화를 이룬다.
 
-크고 작은 산봉우리들이 저수지를 중심으로 협곡을 이루고 있는 이곳에는 수려한 자연풍광과 함께 전설을 간직하고 있는 형형색색의 바위와 기암절벽이 그대로 보존돼 있어, 신비로움을 더한다.
+크고 작은 산봉우리들이 저수지를 중심으로 협곡을 이루고 있는 이곳에는 수려한 자연풍광과 함께 전설을 간직하고 있는 
+형형색색의 바위와 기암절벽이 그대로 보존돼 있어, 신비로움을 더한다.
 
-공원 입구에 들어서면 은빛으로 반짝이는 저수지가 제일 먼저 눈에 들어온다. 저수지 중앙을 가로 지르는 길이 112m, 폭 1.5m의 출렁다리를 건너 산책로 일주는 그야말로 일품이다. 버드 나뭇잎이 수면에 길게 늘어져 있고, 이름모를 꽃과 나무들이 저수지를 끼고 산책로를 따라 둘러쳐져 있다. 간혹 백로가 수려한 자태를 뽐내기도 하는데, 한 폭의 그림이 따로 없다.
+공원 입구에 들어서면 은빛으로 반짝이는 저수지가 제일 먼저 눈에 들어온다. 저수지 중앙을 가로 지르는 길이 112m, 
+폭 1.5m의 출렁다리를 건너 산책로 일주는 그야말로 일품이다. 버드 나뭇잎이 수면에 길게 늘어져 있고, 
+이름모를 꽃과 나무들이 저수지를 끼고 산책로를 따라 둘러쳐져 있다. 간혹 백로가 수려한 자태를 뽐내기도 하는데, 
+한 폭의 그림이 따로 없다.
 
-산책로를 돌아나와 운동장에 들어서면 절벽쪽에 인공폭포가 설치되어 있다. 인공폭포는 하절기에 주로 가동되고 있어 여름철에도 방문객이 끊이지 않는 곳이다.
+산책로를 돌아나와 운동장에 들어서면 절벽쪽에 인공폭포가 설치되어 있다. 인공폭포는 하절기에 주로 가동되고 있어
+ 여름철에도 방문객이 끊이지 않는 곳이다.
 
 ◆ 소재지 : 함안군 산인면 입곡리, 함안면 대산리 일원
 ◆ 면적 : 960,695㎡

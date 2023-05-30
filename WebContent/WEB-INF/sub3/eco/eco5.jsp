@@ -8,15 +8,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 페이지</title>
+<title>악양생태공원</title>
 <style>
 img {border:0;}
 .main_wrap {width:1000px; margin:0 auto;}
 .blank {clear:left; height:50px;}
 .divide {height:35px ; background-color:lightgray;text-align:center;line-height:35px}
 
-.img_sec {width:600px;height:700px; background-color:rgb(88,173,64);margin:10px 200px;float:right}
-.img1 {width:570px; height:488px;margin:15px}
+.img_sec {width:600px;height:705px; background-color:rgb(88,173,64);margin:10px 200px;float:right}
+.img1 {display:inline-block;width:570px; height:488px;margin:15px ;}
+#img_btn1:checked ~ .img1 {background: url(${path1 }/img/eco/saengtae.jfif) no-repeat;background-size:570px 488px;}
+#img_btn2:checked ~ .img1 {background: url(${path1 }/img/eco/saengtae2.jfif) no-repeat;background-size:570px 488px;}
+#img_btn3:checked ~ .img1 {background: url(${path1 }/img/eco/saengtae3.jfif) no-repeat;background-size:570px 488px;}
+.btn_hidden {display:none}
 .img23_wrap {width:570px;height :155px; margin:13.5px 15px;text-align:center }
 .sm_img1,.sm_img2,.sm_img3 {width:180px; height:155px}
 .sm_img1 {float:left}
@@ -26,6 +30,7 @@ img {border:0;}
 .cont_sec {width:100%; background-color:rgb(81,154,56)}
 .cont_art {padding:20px;}
 .cont_adr {float:right; text-align:right}
+
 
 </style>
 </head>
@@ -47,11 +52,16 @@ img {border:0;}
 		<hr style="width:265px;margin:0;background-color:lightgray">
 	</div>
 <section class="img_sec">
-	<div class="img1_wrap"><img src="${path1 }/img/eco/hamandookbang1.jfif" class="img1"></div>
+	<div class="img1_wrap">
+		<input type="radio" name="img_btn" id="img_btn1" checked class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn2" class="btn_hidden">
+		<input type="radio" name="img_btn" id="img_btn3" class="btn_hidden">
+	<div class="img1"></div>
+	</div>
 	<div class="img23_wrap">
-	<img src="${path1 }/img/eco/hamandookbang1.jfif" class="sm_img1">
-	<img src="${path1 }/img/eco/hamandookbang2.jfif" class="sm_img2">
-	<img src="${path1 }/img/eco/hamandookbang3.jpg" class="sm_img3">
+	<label for="img_btn1"><img src="${path1 }/img/eco/saengtae.jfif"  class="sm_img1"></label>
+	<label for="img_btn2"><img src="${path1 }/img/eco/saengtae2.jfif" class="sm_img2"></label>
+	<label for="img_btn3"><img src="${path1 }/img/eco/saengtae3.jfif" class="sm_img3"></label>
 	</div>
 </section>
 <div class="content_blank">
@@ -77,32 +87,33 @@ img {border:0;}
 끊임없이 이어진 제방사이로 흐르는 남강과 해질녘 아름다운 낙조를 감상할 수 있음
 관람시간 : 제한없음
 주소 : 경남 함안군 대산면 하기2길 208-49
-
-
-
-
-
-
-
+</pre>
+<div style="width:960px;height:155px;background-color:whitesmoke;">
+<img src="${path1 }/img/eco/saeng_1.jpg" class="sm_img1" style="margin-left:385px">
+</div>
+<pre>
 
 핑크뮬리
 공원 내 핑크뮬리 식재지로 10월이 되면 4,611㎡ 면적에 심겨진 핑크뮬리(분홍억새)가 만개하여 낭만적인 핑크빛 물결을 이룸
 관람시간 : 제한없음
 주소 : 경남 함안군 대산면 하기2길 208-49
 
-
-
-
-
-
-
+</pre>
+<div style="width:960px;height:155px;background-color:whitesmoke;">
+<img src="${path1 }/img/eco/saeng_2.jpg" class="sm_img1" style="margin-left:385px">
+</div>
+<pre>
 
 잔디광장
 작은 공연장이 있는 약10,000㎡의 잔디 광장
 관람시간 : 제한없음
 주소 : 경남 함안군 대산면 하기2길 208-49
 
-
+</pre>
+<div style="width:960px;height:155px;background-color:whitesmoke;">
+<img src="${path1 }/img/eco/saeng_3.jpg" class="sm_img1" style="margin-left:385px">
+</div>
+<pre>
 
 
 	<span class="cont_adr">

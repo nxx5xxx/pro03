@@ -1,16 +1,59 @@
-원래 있던것에서 작업한것에는 각주와 날짜로 표기했어요
-예) 오늘날짜 0522
-<!-- 0522 --!>
+views를 리뷰평점 올릴때마다 올라가는 수로 두고
+accom에 point 라는 리뷰점수를 넣는다
+point는 그대로 올리고
+리스트에서 출력시 포인트/views로 해서 평균점수를 구해준다
 
-ctrl + F 로 0522검색해보시면 오늘 작업한거 뭔지 알 수 있을거에요
+0529
+리뷰 포인트 추가
+
+accom alter테이블 명령어로
+point 컬럼추가함
+alter table accom add point float default 0;
+
+dto에 point항목 추가
+	private float point;
+//게터세터도 추가해줘야함
 
 
-새로추가한것
-kr.go.haman.controller에 Main.java
+인서트구문 point때문에 default하나 추가
+public final static String ACCOM_INSERT = "insert into accom values(?,?,?,?,?,default,default,default)";
 
-index.jsp > WEB-INF로 옮김
-Loginproctrl sendRedirect에 있는거 requestDisptcher로 바꿈
-UserLogoutCtrl 마찬가지
 
-WEB-INF폴더에
-web.xml 수정해서 메인 /로 바꿔줌
+
+//accomDAO에서
+public ArrayList<Accom> getSelectAllForPage(PageVO pvo){
+		ArrayList<Accom> accomList = new ArrayList<>();
+		try{
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.ACCOM_PAGE);
+			//System.out.println(pvo.getNowRecord());
+			pstmt.setInt(1, pvo.getNowRecord()-1);
+			pstmt.setInt(2, pvo.getViewRecord());
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				Accom accom = new Accom();
+				accom.setAno(rs.getString("ano"));
+				accom.setTitle(rs.getString("title"));
+				accom.setAddr(rs.getString("addr"));
+				accom.setTel(rs.getString("tel"));
+				accom.setFile1(rs.getString("file1"));
+				accom.setRegdate(rs.getString("regdate"));
+				accom.setViews(rs.getInt("views"));
+//이부분 추가함
+				accom.setPoint(rs.getFloat("point"));
+//
+				accomList.add(accom);
+			}
+			
+			pvo = getPageNum(pvo);
+			
+		} catch(ClassNotFoundException e) {
+			System.out.println("오라클JDBC 파일이 잘못되었습니다");
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 잘못되었습니다");
+		} catch(Exception e){
+			System.out.println("식별할수 없는 오류가 발생했습니다.");
+		}
+		MySQL8.close(rs, pstmt, conn);
+		return accomList;
+	}
