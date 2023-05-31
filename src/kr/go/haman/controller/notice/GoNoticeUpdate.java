@@ -33,7 +33,7 @@ public class GoNoticeUpdate extends HttpServlet {
 			}
 		}
 		
-		if(notice.getFile1()!=null){
+		if(notice.getFile2()!=null){
 			if(notice.getFile2().length()>11){
 			String fileName2 = notice.getFile2().substring(12);
 			request.setAttribute("fileName2", fileName2);

@@ -4,22 +4,6 @@
 -- show variables like 'autocommit';
 
 
--- CREATE TABLE test01(id VARCHAR(20) PRIMARY KEY, pw VARCHAR(20) NOT NULL, regdate DATEtime DEFAULT now(), num INT);
--- mysql에서는 date가 date이다
--- INSERT INTO test01 VALUES('kim', '1234', DEFAULT,3456);
--- INSERT INTO test01 VALUES('lee', '2345', DEFAULT,1111);
--- SELECT * FROM test01;
-
-COMMIT;
-
--- 함안 테이블
---  DROP TABLE member;
---  DROP TABLE notice;
--- DROP TABLE photog;
--- DROP TABLE food;
--- DROP TABLE complain;
--- DROP TABLE accom;
-
 -- 멤버 테이블
 create table USER1(ID	VARCHAR(20) PRIMARY KEY,  	
 			NAME VARCHAR(20) NOT NULL, 	
@@ -28,9 +12,7 @@ create table USER1(ID	VARCHAR(20) PRIMARY KEY,
 			TEL	VARCHAR(13) NOT NULL, 	
 			EMAIL VARCHAR(100), 	
 			REGDATE DATETIME DEFAULT NOW());
-
-select * from member;
-
+            
 -- 공지사항 테이블
 create table NOTICE(NNO	VARCHAR(5) PRIMARY KEY,  
 			TITLE VARCHAR(50) NOT NULL, 
@@ -58,7 +40,7 @@ create table COMPLAIN(CNO VARCHAR(5) PRIMARY KEY,
 			COMSW INT NOT NULL DEFAULT 1,
 			REFNO VARCHAR(5) NOT NULL,
 			FOREIGN KEY(ID) REFERENCES USER1(ID));
--- DROP TABLE complain;
+            
 -- comsw 는 qna 스위치이다 1일경우 질문 2일경우 답변
 -- refno는 참조번호
 
@@ -80,16 +62,25 @@ create table 	FOOD(FNO VARCHAR(5) PRIMARY KEY,
 			TEL VARCHAR(14) NOT NULL, 
 			FILE1 VARCHAR(1000) NOT NULL, 
 			REGDATE DATETIME DEFAULT NOW(),
-			VIEWS INT DEFAULT 0);
+			VIEWS INT DEFAULT 0,
+            POINT FLOAT DEFAULT 0);
             
--- 숙소 테이블
+-- 숙소 테이블 -- alter table accom add point float default 0;      나중에 추가해준 포인트컬럼
 create table ACCOM(ANO VARCHAR(5) PRIMARY KEY, 
 			TITLE VARCHAR(50) NOT NULL, 
 			ADDR VARCHAR(200) NOT NULL, 
 			TEL VARCHAR(14) NOT NULL, 
 			FILE1 VARCHAR(1000) NOT NULL, 
 			REGDATE	DATETIME DEFAULT NOW(),
-			VIEWS INT DEFAULT 0);
+			VIEWS INT DEFAULT 0,
+            POINT FLOAT DEFAULT 0);
+            
+      
+-- 리뷰테이블 리뷰 고유번호, 리뷰 참조번호 , 아이디(한명이 악의적으로 평점을 여러개 줄 수 없도록), 포인트 리뷰점수 , 리뷰 내용 (요구할 시)
+create table review(rno varchar(5) primary key,wno varchar(5) not null, 
+	id varchar(20), point float not null default 5 , content varchar(1000),
+    FOREIGN KEY(ID) REFERENCES USER1(ID));
+
 
 -- 회원 더미 데이터
 insert into 	USER1	 values('admin','관리자','1234','경기도 고양시','010-0000-0000','admin@naver.com',default);
@@ -105,22 +96,9 @@ update user1 set pw='xBhtj7wP33kLpksfV5t9VV0w8tPHtkQTg+lE4leQ99K6UnSyGkPCc2gV97k
 insert into 	USER1	 values('jho','조백은','5555','경기도 고양시','010-2222-2223','test5@naver.com',default);
 update user1 set pw='QE8/7ZT6N7WeqAEt8a+aqvmAOHbtOZ4j8yrD0tP0hZ/l/mPOdlThnIOwJ96WkE2UUeF04w==' where id='jho';
 insert into 	USER1	 values('whitekim','김백동','6666','경기도 고양시','010-3333-3334','test6@naver.com',default);
-update user1 set pw='Yz6oIY1WqSIzrvF1c5ZwXTZoPFEcfoAmTl3J5j3fOrgfBLxP2sorg3CF7y+bXcjrwjn4zQ==' where id='whitekim';
+update user1 set pw='Yz6oIY1WqSIzrvF1c5ZwXTZoPFEcfoAmTl3J5j3fOrgfBLxP2sorg3CF7y+bXcjrwjn4zQ==' where id='whitekim';            
 
-
--- 기존 더미데이터 삭제하고 한글이름으로 전환
--- delete from member where mno >= '10001';
-
--- sql인서트문
--- insert into USER1 values(?,?,?,?,?,?,default);
--- 특정회원 검색문
--- 이것때문에 id 해야할듯해요
--- select * from member where 
-
-
-
--- 공지사항 더미 데이터
-desc notice;
+-- 공지사항 더미데이터
 insert into	notice values('20001','더미제목1','더미본문입니다1','admin','관리자','','','',default,default);
 insert into	notice values('20002','더미제목2','더미본문입니다2','admin','관리자','','','',default,default);
 insert into	notice values('20003','더미제목3','더미본문입니다3','admin','관리자','','','',default,default);
@@ -133,89 +111,7 @@ insert into	notice values('20009','더미제목9','더미본문입니다9','admi
 insert into	notice values('20010','더미제목10','더미본문입니다10','admin','관리자','','','',default,default);
 insert into	notice values('20011','더미제목11','더미본문입니다11','admin','관리자','','','',default,default);
 insert into	notice values('20012','더미제목12','더미본문입니다12','admin','관리자','','','',default,default);
--- sql 인서트문 
--- insert into notice values(?,?,?,?,?,?,?,?,default,default);
-desc complain;
 
--- 민원 더미데이터
-insert into complain values('30001', '민원제목1', '민원에대한 본문입니다1','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,DEFAULT,'30001');
-insert into complain values('30002', '민원제목2', '민원에대한 본문입니다2','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30002');
-insert into complain values('30003', '민원제목3', '민원에대한 본문입니다3','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30003');
-insert into complain values('30004', '민원제목4', '민원에대한 본문입니다4','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30004');
-insert into complain values('30005', '민원제목5', '민원에대한 본문입니다5','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30005');
-
-desc photog;
-
--- 포토갤러리 더미데이터
-INSERT INTO photog VALUES('40001','포토갤러리 제목1','포토갤러리의 내용입니다1','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO photog VALUES('40002','포토갤러리 제목2','포토갤러리의 내용입니다2','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO photog VALUES('40003','포토갤러리 제목3','포토갤러리의 내용입니다3','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO photog VALUES('40004','포토갤러리 제목4','포토갤러리의 내용입니다4','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO photog VALUES('40005','포토갤러리 제목5','포토갤러리의 내용입니다5','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT);
-
-
--- insert into photog values()
-
-
-DESC food;
-SELECT * FROM food;
--- 음식점 더미데이터
-INSERT INTO food VALUES('50001','함안음식점1','경상남도 함안군','0505-0101-0101','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO food VALUES('50002','함안음식점2','경상남도 함안군','0505-0202-0202','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO food VALUES('50003','함안음식점3','경상남도 함안군','0505-0303-0303','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO food VALUES('50004','함안음식점4','경상남도 함안군','0505-0404-0404','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO food VALUES('50005','함안음식점5','경상남도 함안군','0505-0505-0505','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO food VALUES('50006','함안음식점6','경상남도 함안군','0505-0606-0606','첨부파일 없음',DEFAULT,DEFAULT);
-
--- 
-DESC accom;
-
-INSERT INTO accom VALUES('60001','함안숙박업소1','경상남도 함안군','070-0101-0101','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO accom VALUES('60002','함안숙박업소2','경상남도 함안군','070-0202-0202','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO accom VALUES('60003','함안숙박업소3','경상남도 함안군','070-0303-0303','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO accom VALUES('60004','함안숙박업소4','경상남도 함안군','070-0404-0404','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO accom VALUES('60005','함안숙박업소5','경상남도 함안군','070-0505-0505','첨부파일 없음',DEFAULT,DEFAULT);
-INSERT INTO accom VALUES('60006','함안숙박업소6','경상남도 함안군','070-0606-0606','첨부파일 없음',DEFAULT,DEFAULT);
-
-SELECT * FROM notice ORDER BY nno DESC LIMIT 1;
-
-DESC notice;
-
-SELECT * FROM complain order by cno DESC;
-
-SELECT * FROM complain;
-DESC complain;
-
-SELECT * FROM complain where id='kim' order by cno DESC;
-SELECT * FROM complain where refno='30001';
-
-SELECT * FROM complain where id='kim' order by cno DESC LIMIT 0,10;
-
-DESC photog;
-SELECT * FROM photog ORDER BY pno DESC;
-SELECT * FROM photog ORDER BY pno DESC LIMIT 1;
-
-SELECT * FROM user1;
-
-show variables like 'lower_case_table_names';
-
-=======
-SELECT * FROM complain where id='kim' order by cno desc LIMIT 0,10;
-
-select * from photog;
-select * from notice;
--- update notice set views=views+1 where nno='20001';
-
-SELECT * FROM photog order by pno desc LIMIT 0,4;
-select count(*) as cnt from photog;
-
-select count(*) from photog; 
-select * from accom;
-select * from food;
-
-
--- 공지사항 더미 데이터2
-desc notice;
 insert into	notice values('20013','더미제목13','더미본문입니다3','admin','관리자','','','',default,default);
 insert into	notice values('20014','더미제목14','더미본문입니다4','admin','관리자','','','',default,default);
 insert into	notice values('20015','더미제목15','더미본문입니다5','admin','관리자','','','',default,default);
@@ -263,7 +159,6 @@ insert into	notice values('20056','더미제목56','더미본문입니다6','adm
 insert into	notice values('20057','더미제목57','더미본문입니다7','admin','관리자','','','',default,default);
 insert into	notice values('20058','더미제목58','더미본문입니다8','admin','관리자','','','',default,default);
 insert into	notice values('20059','더미제목59','더미본문입니다9','admin','관리자','','','',default,default);
-
 insert into	notice values('20060','더미제목60','더미본문입니다10','admin','관리자','','','',default,default);
 insert into	notice values('20061','더미제목61','더미본문입니다1','admin','관리자','','','',default,default);
 insert into	notice values('20062','더미제목62','더미본문입니다2','admin','관리자','','','',default,default);
@@ -315,42 +210,47 @@ insert into	notice values('20107','더미제목107','더미본문입니다7','ad
 insert into	notice values('20108','더미제목108','더미본문입니다8','admin','관리자','','','',default,default);
 insert into	notice values('20109','더미제목109','더미본문입니다9','admin','관리자','','','',default,default);
 
+-- 민원 더미데이터
+insert into complain values('30001', '민원제목1', '민원에대한 본문입니다1','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,DEFAULT,'30001');
+insert into complain values('30002', '민원제목2', '민원에대한 본문입니다2','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30002');
+insert into complain values('30003', '민원제목3', '민원에대한 본문입니다3','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30003');
+insert into complain values('30004', '민원제목4', '민원에대한 본문입니다4','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30004');
+insert into complain values('30005', '민원제목5', '민원에대한 본문입니다5','kim', '김길동', '무직','경기도 고양시 일산구','010-1111-1111','첨부파일없음',default,default,'30005');
 
+-- 숙박업소 더미데이터
+INSERT INTO accom VALUES('60001','함안숙박업소1','경상남도 함안군','070-0101-0101','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO accom VALUES('60002','함안숙박업소2','경상남도 함안군','070-0202-0202','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO accom VALUES('60003','함안숙박업소3','경상남도 함안군','070-0303-0303','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO accom VALUES('60004','함안숙박업소4','경상남도 함안군','070-0404-0404','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO accom VALUES('60005','함안숙박업소5','경상남도 함안군','070-0505-0505','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO accom VALUES('60006','함안숙박업소6','경상남도 함안군','070-0606-0606','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+insert into accom values('60007','러빙유모텔'	,'(52016) 경남 함안군 칠북면 북원로 108, 러빙유모텔','055-587-8900','60005.jpg',default,default,default);
+insert into accom values('60008','아바나모텔',	'(52025) 경남 함안군 칠원읍 동대이길 52, 아바나모텔',	'055-586-0211',	'600011.jpg',	default,default,default);
+insert into accom values('60009','동화모텔',	'(52041) 경남 함안군 가야읍 방목1길 45, 동화모텔',	'055-583-9376',	'60002.jpg',	default,default,default);
+insert into accom values('60010','중앙장모텔',	'(52046) 경남 함안군 가야읍 중앙남1길 25-1, 중앙장',	'055-583-6318',	'60003.jpg',	default,default,default);
+insert into accom values('60011','루팡호텔',	'(52045) 경남 함안군 가야읍 장터길 101, 루팡호텔',	'055-584-9400',	'60004.jpg',	default,default,default);
 
+-- 음식점 더미데이터
+INSERT INTO food VALUES('50001','함안음식점1','경상남도 함안군','0505-0101-0101','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO food VALUES('50002','함안음식점2','경상남도 함안군','0505-0202-0202','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO food VALUES('50003','함안음식점3','경상남도 함안군','0505-0303-0303','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO food VALUES('50004','함안음식점4','경상남도 함안군','0505-0404-0404','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO food VALUES('50005','함안음식점5','경상남도 함안군','0505-0505-0505','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO food VALUES('50006','함안음식점6','경상남도 함안군','0505-0606-0606','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+insert into food values('50007',	'스톤커피',	'(52057) 경남 함안군 법수면 법수로 577, 스톤커피',	'010-5090-6993',	'50001.jpg',default,default,default);
+insert into food values('50008',	'아라밀면',	'(52046) 경남 함안군 가야읍 중앙남길 36, 아라밀면',	'055-583-1882',	'50002.jpg',default,default,default);
+insert into food values('50009',	'옛날 시골 보리밥',	'(52001) 경남 함안군 칠서면 계내3길 19, 옛날 시골 보리밥',	'055-586-0680',	'50003.jpg',default,default,default);
+insert into food values('50010',	'꽃대궐 part 2',	'(52011) 경남 함안군 대산면 대산중앙로 11-2, 꽃대궐',	'070-4154-1060',	'50004.jpg',default,default,default);
+insert into food values('50011',	'안고집',	'(52016) 경남 함안군 칠원읍 북원로 25, 안고집',	'055-587-1403',	'50005.jpg',default,default,default);
 
-
-
--- delete from notice where nno>='20013';
-
-use haman;
-show tables;
-
--- 리뷰테이블 리뷰 고유번호, 리뷰 참조번호 , 아이디(한명이 악의적으로 평점을 여러개 줄 수 없도록), 포인트 리뷰점수 , 리뷰 내용 (요구할 시)
-create table review(rno varchar(5) primary key,wno varchar(5) not null, 
-	id varchar(20), point float not null default 5 , content varchar(1000),
-    FOREIGN KEY(ID) REFERENCES USER1(ID));
-
--- 7만번대    
-select * from review;
-
-select * from review where id='kim' and wno='60009';
-
--- accom에 포인트 컬럼 추가
-
--- alter table accom add point float default 0;
--- alter table food add point float default 0;
-select * from accom;
-select * from food;
-
-update accom set point=5,views=1 where ano="60009";
-
-SELECT * FROM review ORDER BY rno DESC LIMIT 1;
-
-select * from food;
-select * from accom;
-
--- insert into accom values('60012','러빙유모텔'	,'(52016) 경남 함안군 칠북면 북원로 108, 러빙유모텔','055-587-8900','60005.jpg',default,default,default);
-
-select * from photog;
-
-insert into photog values('40007',	'강주리 해바라기 !',	'강주리 해바라기 지난 가을의 풍경',	'kim',	'김길동',	'data/photog/40001_1.jpeg',	'data/photog/40001_2.jpeg',	default,default);
+-- 포토갤러리
+INSERT INTO photog VALUES('40001','포토갤러리 제목1','포토갤러리의 내용입니다1','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO photog VALUES('40002','포토갤러리 제목2','포토갤러리의 내용입니다2','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO photog VALUES('40003','포토갤러리 제목3','포토갤러리의 내용입니다3','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO photog VALUES('40004','포토갤러리 제목4','포토갤러리의 내용입니다4','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO photog VALUES('40005','포토갤러리 제목5','포토갤러리의 내용입니다5','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
+insert into photog values('40006',	'강주리 해바라기 !',	'강주리 해바라기 지난 가을의 풍경',	'kim',	'김길동',	'data/photog/40001_1.jpeg',	'data/photog/40001_2.jpeg',	default,default);
+insert into photog values('40007',	'강나루 생태공원 !',	'칠서강나루 공원을 찾아서',	'kim',	'김길동',	'data/photog/40002_1.jpeg',	'data/photog/40002_2.jpeg',	default,default);
+insert into photog values('40008',	'강주해바라기',	'강주해바라기',	'kim',	'김길동',	'data/photog/40003_1.jpeg',	'data/photog/40003_2.jpeg',	default,default);
+insert into photog values('40009',	'함주 연꽃 테마공원',	'7월23일 아라 홍연꽃이 개화를 시작',	'kim',	'김길동',	'data/photog/40004_1.jpeg',	'data/photog/40004_2.jpeg',	default,default);
+insert into photog values('40010',	'탁자식 고인돌',	'북방식  지석묘 -청동기 시대',	'kim',	'김길동',	'data/photog/40005_1.jpeg',	'data/photog/40005_2.jpeg',	default,default);
