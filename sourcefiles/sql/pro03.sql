@@ -332,7 +332,6 @@ create table review(rno varchar(5) primary key,wno varchar(5) not null,
 
 -- 7만번대    
 select * from review;
-
 select * from review where id='kim' and wno='60009';
 
 -- accom에 포인트 컬럼 추가
@@ -341,6 +340,7 @@ select * from review where id='kim' and wno='60009';
 -- alter table food add point float default 0;
 select * from accom;
 select * from food;
+
 
 update accom set point=5,views=1 where ano="60009";
 

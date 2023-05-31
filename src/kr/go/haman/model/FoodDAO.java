@@ -167,6 +167,7 @@ public class FoodDAO {
 				food.setFile1(rs.getString("file1"));
 				food.setRegdate(rs.getString("regdate"));
 				food.setViews(rs.getInt("views"));
+				food.setPoint(rs.getFloat("point"));
 				foodList.add(food);
 			}
 			

@@ -63,6 +63,58 @@
 						}
 						</script>
 			      </div>
+			      <div style="float:right">
+			      		평가한사람 ${food.views} 명
+			      		평균점수 <br>
+			      		<c:set var="point" value="${food.point/food.views}" />
+			      		<c:choose>
+			      			<c:when test="${point>5 }">
+			      			작성된 리뷰가 없습니다<br>
+			      			<img src="${path1 }/img/review/star.PNG">
+			      			</c:when>
+			      			<c:when test="${point>4.5 }">
+			      			<img src="${path1 }/img/review/star_50.png">
+			      			</c:when>
+			      			<c:when test="${point>4 }">
+			      			<img src="${path1 }/img/review/star_45.png">
+			      			</c:when>
+			      			<c:when test="${point>3.5 }">
+			      			<img src="${path1 }/img/review/star_40.png">
+			      			</c:when>
+			      			<c:when test="${point>3 }">
+			      			<img src="${path1 }/img/review/star_35.png">
+			      			</c:when>
+			      			<c:when test="${point>2.5 }">
+			      			<img src="${path1 }/img/review/star_30.png">
+			      			</c:when>
+			      			<c:when test="${point>2 }">
+			      			<img src="${path1 }/img/review/star_25.png">
+			      			</c:when>
+			      			<c:when test="${point>1.5 }">
+			      			<img src="${path1 }/img/review/star_20.png">
+			      			</c:when>
+			      			<c:when test="${point>1 }">
+			      			<img src="${path1 }/img/review/star_15.png">
+			      			</c:when>
+			      			<c:when test="${point>0.5 }">
+			      			<img src="${path1 }/img/review/star_1.png">
+			      			</c:when>
+			      			<c:when test="${point>0 }">
+			      			<img src="${path1 }/img/review/star_05.png">
+			      			</c:when>
+			      			<c:otherwise>
+			      			작성된 리뷰가 없습니다<br>
+			      			<img src="${path1 }/img/review/star.PNG">
+			      			</c:otherwise>
+
+			      		</c:choose>
+						<c:if test="${point>=0 && point<=5}">
+			      		<fmt:formatNumber pattern="#.##" value="${food.point/food.views}" />
+			      		</c:if>
+			      		<c:if test="${sid!=null }">
+			      		<input type="button" class="button is-info" value="별점주기" onclick="reviewpage(${food.fno })">
+			          	</c:if>
+			          	</div>
 			    <c:if test="${empty foodList }">
 					<strong>게시글이 존재하지 않습니다.</strong>
 				</c:if>	
@@ -81,6 +133,14 @@ function findaddr(fno){
 		var popY= (window.screen.height / 2) - (720 / 2);
 		var fno = fno
 		window.open("${path1 }/GoFoodMap.do?fno="+fno,"길 찾기","status=no,toolbar=no,scrollbars=no, width=1100, height=720,left="+ popX + ", top="+ popY);
+}
+</script>
+<script>
+function reviewpage(wno){
+	var popX = (window.screen.width / 2) - (600 / 2);
+	var popY= (window.screen.height / 2) - (200 / 2);
+	var wno = wno
+	window.open("${path1 }/ReviewCtrl.do?wno="+wno,"길 찾기","status=no,toolbar=no,scrollbars=no, width=600, height=200,left="+ popX + ", top="+ popY);
 }
 </script>
 

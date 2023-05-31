@@ -8,11 +8,13 @@ public class Food {
 	private	String	file1;
 	private	String	regdate;
 	private	int	views;
+	private float point;
+	
 	@Override
 	public String toString() {
 		return "Food [fno=" + fno + ", title=" + title + ", addr=" + addr
 				+ ", tel=" + tel + ", file1=" + file1 + ", regdate=" + regdate
-				+ ", views=" + views + "]";
+				+ ", views=" + views + ", point=" + point + "]";
 	}
 	public String getFno() {
 		return fno;
@@ -55,6 +57,12 @@ public class Food {
 	}
 	public void setViews(int views) {
 		this.views = views;
+	}
+	public float getPoint() {
+		return point;
+	}
+	public void setPoint(float point) {
+		this.point = point;
 	}
 	
 

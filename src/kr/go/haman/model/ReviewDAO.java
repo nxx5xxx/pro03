@@ -90,6 +90,9 @@ public class ReviewDAO {
 				pstmt.setString(2, rv.getWno());
 			}else if(wnosw>=50000 && wnosw<60000){
 				//음식점 테이블일경우
+				pstmt = conn.prepareStatement(MySQL8.REVIEW_UPDATE_FOOD);
+				pstmt.setFloat(1, rv.getPoint());
+				pstmt.setString(2, rv.getWno());
 			}
 			sw = pstmt.executeUpdate();
 			if(sw>0){
@@ -99,7 +102,7 @@ public class ReviewDAO {
 		} catch(ClassNotFoundException e) {
 			System.out.println("오라클JDBC 파일이 잘못되었습니다");
 		} catch(SQLException e) {
-			System.out.println("SQL구문이 잘못되었습니다");
+			System.out.println("SQL구문이 잘못되었습니다123"+e);
 		} catch(Exception e){
 			System.out.println("식별할수 없는 오류가 발생했습니다.");
 		}

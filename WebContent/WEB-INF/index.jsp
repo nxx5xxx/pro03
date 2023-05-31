@@ -16,7 +16,7 @@
 .inner { height:574px; width: 100vw; float: left; }
 .inner img { width: 100%; }
 #btn { font-size: 12px; margin-left: 5px; border-radius:35px; color:#fff; background-color: #fff; width: 19px; height: 19px; }
-.btngroup { position: absolute; margin-left: 780px; margin-top: -50px;  }
+.btngroup { position: absolute; left: 47%; margin-top: -50px;  }
 
 .notititle { text-align: center; color:#fff; font-size: 34px; font-weight: 600;}
 .notice { width: auto; background-color:rgb(0,154,218); color:#fff; font-size: 18px; }
@@ -81,58 +81,31 @@
 	<br><br><h2 class="notititle">함안소식 알림</h2><br><br>
 	<img id="datedeco" alt="datedeco" src="${path1 }/img/fpr1deco1.png">
 	<span class="datedecotit">2023<strong id="dt2">05</strong><p id="dt3">may</p></span> 
+    <br>
+    <c:forEach items="${notList }" var="note">
+    <c:if test="${note.nno == '20014' || note.nno == '20013' || note.nno == '20015'}">
     <article class="media">
       <figure class="media-left">
-        <p class="image is-128x128">
-          <img src="https://bulma.io/images/placeholders/96x96.png">
+        <p class="imageis">
+          <img src="${note.file1 }" style="width: 200px; height: 220px;">
         </p>
       </figure>
       <div class="media-content">
         <div class="content">
           <p>
-            <strong id="noti">함안소식 1</strong>
+			<a style="color:#fff" href="${path1 }/GoNoticeDetail.do?nno=${note.nno}">
+			<strong id="noti">${note.title }</strong><br>
             <br>
-            Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
+            ${note.content }
             <br>
+            </a>
           </p>
         </div>
       </div>
     </article>
-    <article class="media">
-      <figure class="media-left">
-        <p class="image is-128x128">
-          <img src="https://bulma.io/images/placeholders/96x96.png">
-        </p>
-      </figure>
-      <div class="media-content">
-        <div class="content">
-          <p>
-            <strong id="noti">함안소식 2</strong>
-            <br>
-            Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
-            <br>
-          </p>
-        </div>
-      </div>
-    </article>
-    <article class="media">
-      <figure class="media-left">
-        <p class="image is-128x128">
-          <img src="https://bulma.io/images/placeholders/96x96.png">
-        </p>
-      </figure>
-      <div class="media-content">
-        <div class="content">
-          <p>
-            <strong id="noti">함안소식 3</strong>
-            <br>
-            Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
-            <br>
-          </p>
-          <br><br>
-        </div>
-      </div>
-    </article>
+    </c:if>
+    </c:forEach>
+            <br><br>
   </div>
 	<div class="tour">
 			<br><br>

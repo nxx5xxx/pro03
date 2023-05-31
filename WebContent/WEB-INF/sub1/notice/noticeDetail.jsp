@@ -41,7 +41,8 @@ tr {margin-left:20px}
 		</tr>
 		</c:if>
 		<tr>
-		<td colspan="3">${notice.content }
+		<td colspan="3"><pre style="background-color:transparent">${notice.content }</pre>
+		
 		<span><br><br></span>
 		<c:if test="${!empty notice.file3 }">
 		<img src="${notice.file3 }" style="width:100%;height:auto">

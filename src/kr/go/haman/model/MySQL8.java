@@ -35,6 +35,7 @@ public class MySQL8 {
 	
 	//숙소테이블 리뷰포인트 업데이트
 		final static String REVIEW_UPDATE_ACCOM = "update accom set point=point+?,views=views+1 where ano=?";
+		final static String REVIEW_UPDATE_FOOD = "update food set point=point+?,views=views+1 where fno=?";
 		
 		
 	//공지사항
