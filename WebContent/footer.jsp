@@ -17,16 +17,16 @@ overflow:hidden; box-shadow:1px 1px 6px #333; }
 	</div>
   <nav class="level" id="level1" style="background-color: rgb(0,154,218); height: 50px;">
   <p class="level-item has-text-centered">
-    <a class="link is-info">실과소 바로가기</a>
+    <a class="link is-info" href="https://www.haman.go.kr/03633/03678/03693.web">실과소 바로가기</a>
   </p>
   <p class="level-item has-text-centered">
-    <a class="link is-info">읍면 바로가기</a>
+    <a class="link is-info" href="https://www.haman.go.kr/03633/03638/03836.web">읍면 바로가기</a>
   </p>
   <p class="level-item has-text-centered">
-    <a class="link is-info">도,시군청 바로가기</a>
+    <a class="link is-info" href="https://www.gyeongnam.go.kr/index.gyeong">도,시군청 바로가기</a>
   </p>
   <p class="level-item has-text-centered">
-    <a class="link is-info">유관기관,단체 바로가기</a>
+    <a class="link is-info" href="http://www.gnpolice.go.kr/ha/#">유관기관,단체 바로가기</a>
   </p>
  </nav>
   <nav class="level" id="level2">
@@ -34,13 +34,13 @@ overflow:hidden; box-shadow:1px 1px 6px #333; }
     <img src="./img/foot_logo.png" alt="logo" style="width:190px; height: 62px;">
   </p>
   <p class="level-item has-text-centered">
-    <a class="link is-info">개인정보 처리방침</a>
+    <a class="link is-info" href="https://www.haman.go.kr/04160/04164/06455.web">개인정보 처리방침</a>
   </p>
   <p class="level-item has-text-centered">
-    <a class="link is-info">저작권정책</a>
+    <a class="link is-info" href="https://www.haman.go.kr/04160/04164/04168.web">저작권정책</a>
   </p>
   <p class="level-item has-text-centered">
-    <a class="link is-info">오시는길</a>
+    <a class="link is-info" href="https://www.haman.go.kr/03633/03637/03815.web">오시는길</a>
   </p>
   <p class="level-item has-text-centered">
     <img src="./img/foot_mark.png" alt="logo" style="width:112px; height: 77px;">

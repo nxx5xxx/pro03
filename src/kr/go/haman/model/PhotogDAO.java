@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 
 
+
 import kr.go.haman.dto.Photog;
 import kr.go.haman.vo.PageVO;
 
@@ -114,6 +115,7 @@ public class PhotogDAO {
 		Photog photo = new Photog();
 		try {
 			conn = MySQL8.getConnection();
+			updateView(pno);
 			pstmt = conn.prepareStatement(MySQL8.PHOTO_SELECT_ONE);
 			pstmt.setString(1, pno);
 			rs = pstmt.executeQuery();
@@ -139,6 +141,19 @@ public class PhotogDAO {
 		}
 		MySQL8.close(rs, pstmt, conn);
 		return photo;
+	}
+	
+	public void updateView(String pno){
+
+		try {
+			pstmt = conn.prepareStatement(MySQL8.PHOTO_VIEW_PLUS);
+			pstmt.setString(1, pno);
+			pstmt.executeUpdate();
+		} catch(SQLException e) {
+			System.out.println("view plus의 SQL구문이 잘못되었습니다");
+		} catch(Exception e){
+			System.out.println("view plus의 식별할수 없는 오류가 발생했습니다.");
+		}
 	}
 	
 	public void insertPhotog(Photog photo){

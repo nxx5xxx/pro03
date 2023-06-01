@@ -95,7 +95,7 @@ tr {margin-left:20px}
 			<table class="table is-fullwidth">
 			<tr>
 			<th>
-			<span class="colred">*</span> 민원 제목
+			<span class="colred">*</span> 답변 제목
 			</th>
 			<td>
 			<input type="text" name="title" placeholder="내용을 입력해주세요" required>
@@ -103,7 +103,7 @@ tr {margin-left:20px}
 			</tr>
 			<tr>
 			<th>
-			<span class="colred">*</span> 민원 내용
+			<span class="colred">*</span> 답변 내용
 			</th>
 			<td>
 			<textarea rows="20" cols="100" name="content" placeholder="내용을 입력해주세요" required></textarea>

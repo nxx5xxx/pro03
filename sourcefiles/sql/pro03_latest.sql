@@ -251,6 +251,8 @@ INSERT INTO photog VALUES('40004','포토갤러리 제목4','포토갤러리의 
 INSERT INTO photog VALUES('40005','포토갤러리 제목5','포토갤러리의 내용입니다5','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
 insert into photog values('40006',	'강주리 해바라기 !',	'강주리 해바라기 지난 가을의 풍경',	'kim',	'김길동',	'data/photog/40001_1.jpeg',	'data/photog/40001_2.jpeg',	default,default);
 insert into photog values('40007',	'강나루 생태공원 !',	'칠서강나루 공원을 찾아서',	'kim',	'김길동',	'data/photog/40002_1.jpeg',	'data/photog/40002_2.jpeg',	default,default);
-insert into photog values('40008',	'강주해바라기',	'강주해바라기',	'kim',	'김길동',	'data/photog/40003_1.jpeg',	'data/photog/40003_2.jpeg',	default,default);
-insert into photog values('40009',	'함주 연꽃 테마공원',	'7월23일 아라 홍연꽃이 개화를 시작',	'kim',	'김길동',	'data/photog/40004_1.jpeg',	'data/photog/40004_2.jpeg',	default,default);
-insert into photog values('40010',	'탁자식 고인돌',	'북방식  지석묘 -청동기 시대',	'kim',	'김길동',	'data/photog/40005_1.jpeg',	'data/photog/40005_2.jpeg',	default,default);
+insert into photog values('40008',	'강주해바라기',	'강주해바라기',	'kim',	'김길동',	'data/photog/40003_1.jpg',	'data/photog/40003_2.jpg',	default,default);
+insert into photog values('40009',	'함주 연꽃 테마공원',	'7월23일 아라 홍연꽃이 개화를 시작',	'kim',	'김길동',	'data/photog/40004_1.jpg',	'data/photog/40004_2.jpg',	default,default);
+insert into photog values('40010',	'탁자식 고인돌',	'북방식  지석묘 -청동기 시대',	'kim',	'김길동',	'data/photog/40005_1.jpg',	'data/photog/40005_2.jpg',	default,default);
+
+select * from photog;

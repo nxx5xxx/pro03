@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>민원게시판</title>
+<title>공지사항</title>
 <style>
 .main_wrap {width:1000px; margin:0 auto;min-height:700px}
 .blank {height:100px}
@@ -37,7 +37,7 @@ tr {margin-left:20px}
 			<h3 class="title is-3 min" style="line-height:48.8px" >제목</h3>
 		</th>
 		<td>
-			<input class="input is-medium" type="text" name="title" placeholder="제목을 입력해 주세요">	
+			<input class="input is-medium" type="text" name="title" placeholder="제목을 입력해 주세요" required>	
 		</td>
 		</tr>
 		
