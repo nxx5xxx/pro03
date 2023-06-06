@@ -35,7 +35,7 @@
 							지역 상권의 중심으로 군을 대표하는 전통 재래시장의 명소로 지역민들의 많은 사랑을 받고 있으며 
 							상설 및 정기(매월 5일, 10일, 15일, 20일, 25일, 30일(마지막 날))적으로 열리고 있다.
 				        </p>
-			          	<a class="button is-fullwidth is-info is-light" href="" >자세히보기 ></a>
+			          	<a class="button is-fullwidth is-info is-light" href="${path1 }/Market1.do" >자세히보기 ></a>
 			    </div>
 			    </div>
 			  </article>
@@ -52,7 +52,7 @@
 							칠원읍 구성리 일원에서 정기적으로 매월 3일, 8일, 13일, 18일, 23일, 28일 열린다. 
 							62년에 개설되었으며 주변에서 생산되는 농산물과 어물전, 의복류등이 주종을 이루어 거래되고 있다.
 				        </p>
-			          	<a class="button is-fullwidth is-info is-light" href="" >자세히보기 ></a>
+			          	<a class="button is-fullwidth is-info is-light" href="${path1 }/Market2.do" >자세히보기 ></a>
 			    </div>
 			    </div>
 			  </article>
@@ -69,7 +69,7 @@
 							군북면 중암리에서 정기적으로 매월 4일, 9일, 14일, 19일, 24일, 29일 열린다. 
 							1960년 현 위치에 개설되어 오늘에 이르고 있으며, 어물전 및 지역에서 생산되는 농산물과 기타 생활 잡화가 거래되고 있다.
 				        </p>
-			          	<a class="button is-fullwidth is-info is-light" href="" >자세히보기 ></a>
+			          	<a class="button is-fullwidth is-info is-light" href="${path1 }/Market3.do" >자세히보기 ></a>
 			    </div>
 			    </div>
 			  </article>
@@ -87,7 +87,7 @@
 							62년도에 개설되어 현재에 이르고 있으며, 창녕군과 의령군이 연접하여 이웃군민이 많이 찾는 장으로, 
 							각종 생필품이 거래되고 철따라 주변에서 생산되는 채소, 과일등이 거래되고 있다.
 				        </p>
-			          	<a class="button is-fullwidth is-info is-light" href="" >자세히보기 ></a>
+			          	<a class="button is-fullwidth is-info is-light" href="${path1 }/Market4.do" >자세히보기 ></a>
 			   	 </div>
 			    </div>
 			  </article>

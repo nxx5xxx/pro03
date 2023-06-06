@@ -1,3 +1,26 @@
+시장은 컨트롤러에 market 1~4.java넣고
+
+WEB-INF/sub4/market에 market1~4.jsp 추가하고
+
+market.jsp a href부분 수정했어요
+a href는
+href="" > 자세히보기 </a> 이부분에
+
+${path1 }/Market1~~~4.do 추가한거에요
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////
 views를 리뷰평점 올릴때마다 올라가는 수로 두고
 accom에 point 라는 리뷰점수를 넣는다
 point는 그대로 올리고

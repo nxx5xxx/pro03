@@ -1,5 +1,6 @@
 -- create database haman;
  USE haman;
+ 
 -- set autocommit=true;
 -- show variables like 'autocommit';
 
@@ -229,6 +230,7 @@ insert into accom values('60008','아바나모텔',	'(52025) 경남 함안군 �
 insert into accom values('60009','동화모텔',	'(52041) 경남 함안군 가야읍 방목1길 45, 동화모텔',	'055-583-9376',	'60002.jpg',	default,default,default);
 insert into accom values('60010','중앙장모텔',	'(52046) 경남 함안군 가야읍 중앙남1길 25-1, 중앙장',	'055-583-6318',	'60003.jpg',	default,default,default);
 insert into accom values('60011','루팡호텔',	'(52045) 경남 함안군 가야읍 장터길 101, 루팡호텔',	'055-584-9400',	'60004.jpg',	default,default,default);
+select * from accom;
 
 -- 음식점 더미데이터
 INSERT INTO food VALUES('50001','함안음식점1','경상남도 함안군','0505-0101-0101','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
@@ -242,6 +244,7 @@ insert into food values('50008',	'아라밀면',	'(52046) 경남 함안군 가�
 insert into food values('50009',	'옛날 시골 보리밥',	'(52001) 경남 함안군 칠서면 계내3길 19, 옛날 시골 보리밥',	'055-586-0680',	'50003.jpg',default,default,default);
 insert into food values('50010',	'꽃대궐 part 2',	'(52011) 경남 함안군 대산면 대산중앙로 11-2, 꽃대궐',	'070-4154-1060',	'50004.jpg',default,default,default);
 insert into food values('50011',	'안고집',	'(52016) 경남 함안군 칠원읍 북원로 25, 안고집',	'055-587-1403',	'50005.jpg',default,default,default);
+select * from food;
 
 -- 포토갤러리
 INSERT INTO photog VALUES('40001','포토갤러리 제목1','포토갤러리의 내용입니다1','kim','김길동','첨부파일 없음','첨부파일 없음',DEFAULT,DEFAULT,DEFAULT);
